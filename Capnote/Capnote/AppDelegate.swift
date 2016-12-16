@@ -8,6 +8,7 @@
 
 import UIKit
 import CoreData
+import Firebase
 
 @UIApplicationMain
 class AppDelegate: UIResponder, UIApplicationDelegate {
@@ -17,6 +18,18 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplicationLaunchOptionsKey: Any]?) -> Bool {
         // Override point for customization after application launch.
+        FIRApp.configure()
+        
+        FIRAuth.auth()?.signIn(withEmail: "asrorids@gmail.com", password: "Asrorov93", completion: { (user, err) in
+            if let error = err {
+                print(error.localizedDescription)
+            } else {
+                print(user?.email)
+            }
+            
+        })
+        
+        
         return true
     }
 
