@@ -20,12 +20,58 @@
                     <view key="view" contentMode="scaleToFill" id="3oy-9W-d3Z">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <color key="backgroundColor" red="0.89803921568627454" green="0.32156862745098036" blue="0.2196078431372549" alpha="1" colorSpace="calibratedRGB"/>
                     </view>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="XpY-ng-jW3" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-222" y="137"/>
+            <point key="canvasLocation" x="-582" y="-121"/>
+        </scene>
+        <!--Tab Bar Controller-->
+        <scene sceneID="1wW-Yd-38G">
+            <objects>
+                <tabBarController id="Mej-3i-qZB" sceneMemberID="viewController">
+                    <tabBar key="tabBar" contentMode="scaleToFill" id="vto-kZ-aos">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="49"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                        <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+                    </tabBar>
+                    <connections>
+                        <segue destination="fSd-MI-UTN" kind="relationship" relationship="viewControllers" id="0wf-AU-Yec"/>
+                    </connections>
+                </tabBarController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="Ue2-6t-nXq" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="262" y="-224"/>
+        </scene>
+        <!--Feed-->
+        <scene sceneID="bbX-mF-7Iw">
+            <objects>
+                <tableViewController id="fSd-MI-UTN" sceneMemberID="viewController">
+                    <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="28" sectionFooterHeight="28" id="iCi-eD-Kfp">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <prototypes>
+                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" id="X8Q-5d-Jqa">
+                                <rect key="frame" x="0.0" y="28" width="375" height="44"/>
+                                <autoresizingMask key="autoresizingMask"/>
+                                <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="X8Q-5d-Jqa" id="jUP-wP-Rja">
+                                    <rect key="frame" x="0.0" y="0.0" width="375" height="43"/>
+                                    <autoresizingMask key="autoresizingMask"/>
+                                </tableViewCellContentView>
+                            </tableViewCell>
+                        </prototypes>
+                        <connections>
+                            <outlet property="dataSource" destination="fSd-MI-UTN" id="gTc-Si-ER7"/>
+                            <outlet property="delegate" destination="fSd-MI-UTN" id="eu0-T5-ANF"/>
+                        </connections>
+                    </tableView>
+                    <tabBarItem key="tabBarItem" title="Feed" id="pr2-AF-Vsh"/>
+                </tableViewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="uAR-eG-TPz" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1314" y="-371"/>
         </scene>
     </scenes>
 </document>
