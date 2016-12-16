@@ -8,7 +8,6 @@
 
 /* Begin PBXBuildFile section */
 		3CFBE5151E03A37500F8D48B /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3CFBE5141E03A37500F8D48B /* AppDelegate.swift */; };
-		3CFBE5171E03A37500F8D48B /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3CFBE5161E03A37500F8D48B /* ViewController.swift */; };
 		3CFBE51A1E03A37500F8D48B /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 3CFBE5181E03A37500F8D48B /* Main.storyboard */; };
 		3CFBE51D1E03A37500F8D48B /* Capnote.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 3CFBE51B1E03A37500F8D48B /* Capnote.xcdatamodeld */; };
 		3CFBE51F1E03A37500F8D48B /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 3CFBE51E1E03A37500F8D48B /* Assets.xcassets */; };
@@ -16,6 +15,9 @@
 		3CFBE52D1E03A37500F8D48B /* CapnoteTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3CFBE52C1E03A37500F8D48B /* CapnoteTests.swift */; };
 		3CFBE5381E03A37600F8D48B /* CapnoteUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3CFBE5371E03A37600F8D48B /* CapnoteUITests.swift */; };
 		3CFBE54A1E03ABD800F8D48B /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 3CFBE5491E03ABD800F8D48B /* GoogleService-Info.plist */; };
+		3CFBE54C1E03B1B100F8D48B /* LoginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3CFBE54B1E03B1B100F8D48B /* LoginViewController.swift */; };
+		3CFBE54D1E03B1B100F8D48B /* LoginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3CFBE54B1E03B1B100F8D48B /* LoginViewController.swift */; };
+		3CFBE54E1E03B1B100F8D48B /* LoginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3CFBE54B1E03B1B100F8D48B /* LoginViewController.swift */; };
 		72DB4436C719C9FDB0A5A7C4 /* Pods_Capnote.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = ACCF729233D5163EA72FD564 /* Pods_Capnote.framework */; };
 		73141192CCB45DAE0A6FC84C /* Pods_CapnoteUITests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 2D9C40C3EC6DCD7A8A0AE7E8 /* Pods_CapnoteUITests.framework */; };
 		F5C816ABDF5B56EB8E718622 /* Pods_CapnoteTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 6CEA48A7B57AAF942F7A9DE4 /* Pods_CapnoteTests.framework */; };
@@ -44,7 +46,6 @@
 		388B4A6C41FB99087763D01A /* Pods-CapnoteUITests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-CapnoteUITests.debug.xcconfig"; path = "Pods/Target Support Files/Pods-CapnoteUITests/Pods-CapnoteUITests.debug.xcconfig"; sourceTree = "<group>"; };
 		3CFBE5111E03A37500F8D48B /* Capnote.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Capnote.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		3CFBE5141E03A37500F8D48B /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
-		3CFBE5161E03A37500F8D48B /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
 		3CFBE5191E03A37500F8D48B /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		3CFBE51C1E03A37500F8D48B /* Capnote.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = Capnote.xcdatamodel; sourceTree = "<group>"; };
 		3CFBE51E1E03A37500F8D48B /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
@@ -57,6 +58,7 @@
 		3CFBE5371E03A37600F8D48B /* CapnoteUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CapnoteUITests.swift; sourceTree = "<group>"; };
 		3CFBE5391E03A37600F8D48B /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		3CFBE5491E03ABD800F8D48B /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
+		3CFBE54B1E03B1B100F8D48B /* LoginViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LoginViewController.swift; sourceTree = "<group>"; };
 		6CEA48A7B57AAF942F7A9DE4 /* Pods_CapnoteTests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_CapnoteTests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		8786C5271E337F1423D35C35 /* Pods-CapnoteUITests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-CapnoteUITests.release.xcconfig"; path = "Pods/Target Support Files/Pods-CapnoteUITests/Pods-CapnoteUITests.release.xcconfig"; sourceTree = "<group>"; };
 		A4622C176E0B19472E8C9FD2 /* Pods-Capnote.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Capnote.debug.xcconfig"; path = "Pods/Target Support Files/Pods-Capnote/Pods-Capnote.debug.xcconfig"; sourceTree = "<group>"; };
@@ -120,12 +122,12 @@
 			children = (
 				3CFBE5491E03ABD800F8D48B /* GoogleService-Info.plist */,
 				3CFBE5141E03A37500F8D48B /* AppDelegate.swift */,
-				3CFBE5161E03A37500F8D48B /* ViewController.swift */,
 				3CFBE5181E03A37500F8D48B /* Main.storyboard */,
 				3CFBE51E1E03A37500F8D48B /* Assets.xcassets */,
 				3CFBE5201E03A37500F8D48B /* LaunchScreen.storyboard */,
 				3CFBE5231E03A37500F8D48B /* Info.plist */,
 				3CFBE51B1E03A37500F8D48B /* Capnote.xcdatamodeld */,
+				3CFBE54B1E03B1B100F8D48B /* LoginViewController.swift */,
 			);
 			path = Capnote;
 			sourceTree = "<group>";
@@ -454,7 +456,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				3CFBE5171E03A37500F8D48B /* ViewController.swift in Sources */,
+				3CFBE54C1E03B1B100F8D48B /* LoginViewController.swift in Sources */,
 				3CFBE51D1E03A37500F8D48B /* Capnote.xcdatamodeld in Sources */,
 				3CFBE5151E03A37500F8D48B /* AppDelegate.swift in Sources */,
 			);
@@ -464,6 +466,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				3CFBE54D1E03B1B100F8D48B /* LoginViewController.swift in Sources */,
 				3CFBE52D1E03A37500F8D48B /* CapnoteTests.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -472,6 +475,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				3CFBE54E1E03B1B100F8D48B /* LoginViewController.swift in Sources */,
 				3CFBE5381E03A37600F8D48B /* CapnoteUITests.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
