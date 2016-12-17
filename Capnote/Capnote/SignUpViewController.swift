@@ -26,6 +26,7 @@ class SignUpViewController: UIViewController, UITextFieldDelegate, UIImagePicker
         
         // set up delegates for UITextField variables 
         setUpDelegates()
+        setUpLastThingsForView()
 
         let tapGestureRecognizer = UITapGestureRecognizer(target:self, action:#selector(imageTapped(img:)))
         newProfileImageUV.isUserInteractionEnabled = true
@@ -69,10 +70,8 @@ class SignUpViewController: UIViewController, UITextFieldDelegate, UIImagePicker
     
     func imagePickerController(_ picker: UIImagePickerController, didFinishPickingMediaWithInfo info: [String : Any]) {
         if let pickedImage = info[UIImagePickerControllerOriginalImage] as? UIImage {
-            // newProfileImageUV.contentMode = .scaleToFill
             let resizedImage = imageService.resizeImage(image: pickedImage, targetSize: CGSize(width: 140, height: 140))
             newProfileImageUV.image = resizedImage
-        
         }
         
         dismiss(animated: true, completion: nil)
@@ -106,6 +105,10 @@ class SignUpViewController: UIViewController, UITextFieldDelegate, UIImagePicker
         
         // UIImagePickerView
         imagePicker.delegate = self
+    }
+    
+    func setUpLastThingsForView() {
+        imageService.formatImageView(imageView: newProfileImageUV)
     }
 
     /*
