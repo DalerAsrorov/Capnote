@@ -8,20 +8,28 @@
 
 import UIKit
 
-class SignUpViewController: UIViewController, UITextFieldDelegate {
+class SignUpViewController: UIViewController, UITextFieldDelegate, UIImagePickerControllerDelegate, UINavigationControllerDelegate {
     
     @IBOutlet weak var newUsernameTF: UITextField!
     @IBOutlet weak var newEmailTF: UITextField!
     @IBOutlet weak var newPasswordTF: UITextField!
     @IBOutlet weak var newMajorTF: UITextField!
     @IBOutlet weak var newSchoolNameTF: UITextField!
+    @IBOutlet weak var newProfileImageUV: UIImageView!
+    
+    // declare constants
+    let imagePicker = UIImagePickerController()
     
     override func viewDidLoad() {
         super.viewDidLoad()
-    
+        
         // set up delegates for UITextField variables 
         setUpDelegates()
 
+        let tapGestureRecognizer = UITapGestureRecognizer(target:self, action:#selector(imageTapped(img:)))
+        newProfileImageUV.isUserInteractionEnabled = true
+        newProfileImageUV.addGestureRecognizer(tapGestureRecognizer)
+        
         // Do any additional setup after loading the view.
     }
 
@@ -38,6 +46,15 @@ class SignUpViewController: UIViewController, UITextFieldDelegate {
             present(alertController, animated: true, completion: nil)
         }
         
+    }
+    
+    /*
+    * Action handler after the user taps on the UIImageView.
+    * It should generate UIImagePickerView
+    */
+    func imageTapped(img: AnyObject)
+    {
+        print("Something happened")
     }
     
     /**
@@ -61,6 +78,9 @@ class SignUpViewController: UIViewController, UITextFieldDelegate {
         newMajorTF.delegate = self
         newPasswordTF.delegate = self
         newSchoolNameTF.delegate = self
+        
+        // UIImagePickerView
+        imagePicker.delegate = self
     }
 
     /*
