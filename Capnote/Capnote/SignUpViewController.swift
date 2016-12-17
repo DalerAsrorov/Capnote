@@ -7,6 +7,7 @@
 //
 
 import UIKit
+import FirebaseAuth
 
 class SignUpViewController: UIViewController, UITextFieldDelegate, UIImagePickerControllerDelegate, UINavigationControllerDelegate {
     
@@ -41,13 +42,34 @@ class SignUpViewController: UIViewController, UITextFieldDelegate, UIImagePicker
     }
     
     @IBAction func signUpUser(_ sender: Any) {
-        if newUsernameTF.text == "" || newEmailTF.text == "" || newEmailTF.text == "" {
+        if newUsernameTF.text == "" || newPasswordTF.text == "" || newEmailTF.text == "" {
             let alertController = UIAlertController(title: "Error", message: "Enter all required credentials!", preferredStyle: UIAlertControllerStyle.alert)
             let defaultAction = UIAlertAction(title: "OK", style: .cancel, handler: nil)
             alertController.addAction(defaultAction)
             present(alertController, animated: true, completion: nil)
         }
-        
+        else {
+            let inputEmail = self.newEmailTF.text!
+            let inputPassword = self.newPasswordTF.text!
+            
+            FIRAuth.auth()?.createUser(withEmail: inputEmail, password: inputPassword, completion: { (user, error) in
+                if error == nil {
+                    
+                    // Here, add the user and its information
+                    // to the database under 'users' table
+                    
+                    print(inputEmail + " signed up successfully!")
+                }
+                else {
+                    let alertController = UIAlertController(title: "Error", message: error?.localizedDescription, preferredStyle: .alert)
+                    
+                    let defaultAction = UIAlertAction(title: "OK", style: .cancel, handler: nil)
+                    alertController.addAction(defaultAction)
+                    
+                    self.present(alertController, animated: true, completion: nil)
+                }
+            })
+        }
     }
     
     /*
