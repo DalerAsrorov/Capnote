@@ -29,6 +29,12 @@ class SignUpViewController: UIViewController {
     }
     
     @IBAction func signUpUser(_ sender: Any) {
+        if newUsernameTF.text == "" || newEmailTF.text == "" || newEmailTF.text == "" {
+            let alertController = UIAlertController(title: "Error", message: "Enter all required credentials!", preferredStyle: UIAlertControllerStyle.alert)
+            let defaultAction = UIAlertAction(title: "OK", style: .cancel, handler: nil)
+            alertController.addAction(defaultAction)
+            present(alertController, animated: true, completion: nil)
+        }
         
     }
 
