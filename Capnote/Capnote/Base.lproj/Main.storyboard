@@ -227,8 +227,8 @@
                         <outlet property="newEmailTF" destination="RoX-iL-V2g" id="A4C-XM-Fte"/>
                         <outlet property="newMajorTF" destination="IVE-yl-e9W" id="tr9-EA-u0L"/>
                         <outlet property="newPasswordTF" destination="vjB-yL-B9K" id="Opg-Cl-9UZ"/>
+                        <outlet property="newSchoolNameTF" destination="309-OW-TfV" id="iNN-ut-r83"/>
                         <outlet property="newUsernameTF" destination="iWR-OI-QBk" id="uxC-dN-nEz"/>
-                        <outlet property="schoolNameTF" destination="IVE-yl-e9W" id="t5W-2g-fkt"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="73f-wK-YNy" userLabel="First Responder" sceneMemberID="firstResponder"/>

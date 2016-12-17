@@ -8,17 +8,19 @@
 
 import UIKit
 
-class SignUpViewController: UIViewController {
+class SignUpViewController: UIViewController, UITextFieldDelegate {
     
     @IBOutlet weak var newUsernameTF: UITextField!
     @IBOutlet weak var newEmailTF: UITextField!
     @IBOutlet weak var newPasswordTF: UITextField!
-    @IBOutlet weak var schoolNameTF: UITextField!
     @IBOutlet weak var newMajorTF: UITextField!
+    @IBOutlet weak var newSchoolNameTF: UITextField!
     
     override func viewDidLoad() {
         super.viewDidLoad()
-
+    
+        // set up delegates for UITextField variables 
+        setUpDelegates()
 
         // Do any additional setup after loading the view.
     }
@@ -36,6 +38,29 @@ class SignUpViewController: UIViewController {
             present(alertController, animated: true, completion: nil)
         }
         
+    }
+    
+    /**
+     * Called when 'return' key pressed. return NO to ignore.
+     */
+    func textFieldShouldReturn(_ textField: UITextField) -> Bool {
+        textField.resignFirstResponder()
+        return true
+    }
+    
+    /**
+     * Called when the user click on the view (outside the UITextField).
+     */
+    override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?) {
+        self.view.endEditing(true)
+    }
+    
+    func setUpDelegates() {
+        newEmailTF.delegate = self
+        newUsernameTF.delegate = self
+        newMajorTF.delegate = self
+        newPasswordTF.delegate = self
+        newSchoolNameTF.delegate = self
     }
 
     /*
