@@ -22,6 +22,9 @@ class SignUpViewController: UIViewController, UITextFieldDelegate, UIImagePicker
     let imagePicker = UIImagePickerController()
     let imageService = ImageService()
     
+    // models 
+    
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         
@@ -54,9 +57,15 @@ class SignUpViewController: UIViewController, UITextFieldDelegate, UIImagePicker
             
             FIRAuth.auth()?.createUser(withEmail: inputEmail, password: inputPassword, completion: { (user, error) in
                 if error == nil {
+                    let inputUsername = self.newUsernameTF.text!
+                    let inputSchool = self.newSchoolNameTF.text!
+                    let inputMajor = self.newMajorTF.text!
+                    let inputImageURL = "Nothing for now"
                     
                     // Here, add the user and its information
                     // to the database under 'users' table
+                    let userModel = UserModel()
+                    userModel.addUser(username: inputUsername, email: inputEmail, school: inputSchool, major: inputMajor, imageURL: inputImageURL)
                     
                     print(inputEmail + " signed up successfully!")
                 }
@@ -70,6 +79,7 @@ class SignUpViewController: UIViewController, UITextFieldDelegate, UIImagePicker
                 }
             })
         }
+        
     }
     
     /*
