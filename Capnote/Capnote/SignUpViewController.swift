@@ -49,12 +49,35 @@ class SignUpViewController: UIViewController, UITextFieldDelegate, UIImagePicker
     }
     
     /*
-    * Action handler after the user taps on the UIImageView.
-    * It should generate UIImagePickerView
+    *   Action handler after the user taps on the UIImageView.
+    *   It should generate UIImagePickerView
     */
     func imageTapped(img: AnyObject)
     {
+        imagePicker.allowsEditing = false
+        imagePicker.sourceType = .savedPhotosAlbum
+        
+        present(imagePicker, animated: true, completion: nil)
         print("Something happened")
+    }
+    
+    /*
+     *  Load image into the view and store it
+     *  in an array for further handling
+     */
+    
+    func imagePickerController(_ picker: UIImagePickerController, didFinishPickingMediaWithInfo info: [String : Any]) {
+        
+        if let pickedImage = info[UIImagePickerControllerOriginalImage] as? UIImage {
+            newProfileImageUV.contentMode = .scaleAspectFit
+            newProfileImageUV.image = pickedImage
+        }
+        
+        dismiss(animated: true, completion: nil)
+    }
+    
+    func imagePickerControllerDidCancel(_ picker: UIImagePickerController) {
+        dismiss(animated: true, completion: nil)
     }
     
     /**
