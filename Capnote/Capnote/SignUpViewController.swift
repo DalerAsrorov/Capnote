@@ -19,6 +19,7 @@ class SignUpViewController: UIViewController, UITextFieldDelegate, UIImagePicker
     
     // declare constants
     let imagePicker = UIImagePickerController()
+    let imageService = ImageService()
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -67,10 +68,11 @@ class SignUpViewController: UIViewController, UITextFieldDelegate, UIImagePicker
      */
     
     func imagePickerController(_ picker: UIImagePickerController, didFinishPickingMediaWithInfo info: [String : Any]) {
-        
         if let pickedImage = info[UIImagePickerControllerOriginalImage] as? UIImage {
-            newProfileImageUV.contentMode = .scaleAspectFit
-            newProfileImageUV.image = pickedImage
+            // newProfileImageUV.contentMode = .scaleToFill
+            let resizedImage = imageService.resizeImage(image: pickedImage, targetSize: CGSize(width: 140, height: 140))
+            newProfileImageUV.image = resizedImage
+        
         }
         
         dismiss(animated: true, completion: nil)
