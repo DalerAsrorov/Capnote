@@ -109,7 +109,21 @@ class SignUpViewController: UIViewController, UITextFieldDelegate, UIImagePicker
     
     func setUpLastThingsForView() {
         imageService.formatImageView(imageView: newProfileImageUV)
+        
+        
+      
     }
+    
+    func deregisterFromKeyboardNotifications(){
+        //Removing notifies on keyboard appearing
+        NotificationCenter.default.removeObserver(self, name: NSNotification.Name.UIKeyboardWillShow, object: nil)
+        NotificationCenter.default.removeObserver(self, name: NSNotification.Name.UIKeyboardWillHide, object: nil)
+    }
+    
+
+    
+
+    
 
     /*
     // MARK: - Navigation
