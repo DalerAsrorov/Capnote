@@ -9,18 +9,20 @@
 import UIKit
 import FirebaseDatabase
 
-class LoginViewController: UIViewController {
+class LoginViewController: UIViewController, UITextFieldDelegate {
     @IBOutlet weak var usernameTF: UITextField!
-    @IBOutlet weak var passwordTF: UIView!
     @IBOutlet weak var signInBtn: UIButton!
     @IBOutlet weak var registerBtn: UIButton!
+    @IBOutlet weak var passTF: UITextField!
     
     var ref: FIRDatabaseReference!
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        ref = FIRDatabase.database().reference()
         
+        setUpDelegates()
+        
+        ref = FIRDatabase.database().reference()
         
         
         // Do any additional setup after loading the view.
@@ -36,6 +38,28 @@ class LoginViewController: UIViewController {
 
     @IBAction func registerUser(_ sender: Any) {
     }
+    
+    
+    func setUpDelegates() {
+        usernameTF.delegate = self
+        passTF.delegate = self
+    }
+    
+    /**
+     * Called when the user click on the view (outside the UITextField).
+     */
+    override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?) {
+        self.view.endEditing(true)
+    }
+    
+    /**
+     * Called when 'return' key pressed. return NO to ignore.
+     */
+    func textFieldShouldReturn(_ textField: UITextField) -> Bool {
+        textField.resignFirstResponder()
+        return true
+    }
+    
     /*
     // MARK: - Navigation
 
