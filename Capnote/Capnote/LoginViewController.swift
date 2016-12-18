@@ -7,22 +7,18 @@
 //
 
 import UIKit
-import FirebaseDatabase
+import FirebaseAuth
 
 class LoginViewController: UIViewController, UITextFieldDelegate {
     @IBOutlet weak var usernameTF: UITextField!
+    @IBOutlet weak var passTF: UITextField!
     @IBOutlet weak var signInBtn: UIButton!
     @IBOutlet weak var registerBtn: UIButton!
-    @IBOutlet weak var passTF: UITextField!
-    
-    var ref: FIRDatabaseReference!
     
     override func viewDidLoad() {
         super.viewDidLoad()
         
         setUpDelegates()
-        
-        ref = FIRDatabase.database().reference()
         
         
         // Do any additional setup after loading the view.
@@ -34,6 +30,22 @@ class LoginViewController: UIViewController, UITextFieldDelegate {
     }
     
     @IBAction func loginUser(_ sender: Any) {
+        print("Prints hello")
+        if usernameTF.text == "" || passTF.text == "" {
+            let alertController = UIAlertController(title: "Error", message: "Please enter email and password.", preferredStyle: .alert)
+            
+            let defaultAction = UIAlertAction(title: "OK", style: .cancel, handler: nil)
+            alertController.addAction(defaultAction)
+            
+            self.present(alertController, animated: true, completion: nil)
+        } else {
+            let inputEmail = self.usernameTF.text!
+            let inputPassword = self.passTF.text!
+            
+            print(inputEmail, inputPassword)
+            
+            // FIRAuth.auth()?.signIn(withEmail: String, password: <#T##String#>, completion: <#T##FIRAuthResultCallback?##FIRAuthResultCallback?##(FIRUser?, Error?) -> Void#>)
+        }
     }
 
     @IBAction func registerUser(_ sender: Any) {
