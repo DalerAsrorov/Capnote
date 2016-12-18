@@ -61,56 +61,29 @@ class SignUpViewController: UIViewController, UITextFieldDelegate, UIImagePicker
         else {
             let inputEmail = self.newEmailTF.text!
             let inputPassword = self.newPasswordTF.text!
-            let currentImageKeyName = imageService.imageKeyGenerator()
             
-            let storageRef = FIRStorage.storage().reference().child("images/" + currentImageKeyName)
-
-            print ("BEFORE IF LET STATEMENT")
-            if let uploadData = UIImagePNGRepresentation(self.newProfileImageUV.image!) {
-                print ("AFTER IF LET STATEMENT BUT BEFORE ")
-                
-                storageRef.put(uploadData, metadata: nil) { (metadata, error) in
-                    if error != nil {
-                        print("Error happened")
-                        return
+            imageService.storeImage(image: self.newProfileImageUV.image!, completion: { (url) in
+                FIRAuth.auth()?.createUser(withEmail: inputEmail, password: inputPassword, completion: { (user, error) in
+                    if error == nil {
+                        let inputUsername = self.newUsernameTF.text!
+                        let inputSchool = self.newSchoolNameTF.text!
+                        let inputMajor = self.newMajorTF.text!
+                        let inputImageURL = url?.absoluteString
+                        
+                        self.userModel.addUser(username: inputUsername, email: inputEmail, school: inputSchool, major: inputMajor, imageURL: inputImageURL!)
+                        
+                        print(inputUsername + " signed up successfully!")
                     }
-                    
-                    print ("AFTER IF LET STATEMENT")
-                    
-                    FIRAuth.auth()?.createUser(withEmail: inputEmail, password: inputPassword, completion: { (user, error) in
-                        if error == nil {
-                            let inputUsername = self.newUsernameTF.text!
-                            let inputSchool = self.newSchoolNameTF.text!
-                            let inputMajor = self.newMajorTF.text!
-                            let inputImageURL = "Nothing for now"
-                            
-                            print(self.latestSelectedImage.description, " ", self.latestSelectedImage)
-                            
-                            // self.userModel.addUser(username: inputUsername, email: inputEmail, school: inputSchool, major: inputMajor, imageURL: inputImageURL)
-                            
-                            print(inputEmail + " signed up successfully!")
-                            
-                            
-                            // Here, add the user and its information
-                            // to the database under 'users' table
-                            
-                            
-                            
-                        }
-                        else {
-                            let alertController = UIAlertController(title: "Error", message: error?.localizedDescription, preferredStyle: .alert)
-                            
-                            let defaultAction = UIAlertAction(title: "OK", style: .cancel, handler: nil)
-                            alertController.addAction(defaultAction)
-                            
-                            self.present(alertController, animated: true, completion: nil)
-                        }
-                    })
-                }
-                
-            }
-            
-  
+                    else {
+                        let alertController = UIAlertController(title: "Error", message: error?.localizedDescription, preferredStyle: .alert)
+                        
+                        let defaultAction = UIAlertAction(title: "OK", style: .cancel, handler: nil)
+                        alertController.addAction(defaultAction)
+                        
+                        self.present(alertController, animated: true, completion: nil)
+                    }
+                })
+            })
             
   
         }

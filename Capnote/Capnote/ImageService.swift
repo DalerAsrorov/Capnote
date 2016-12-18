@@ -47,17 +47,20 @@ class ImageService: NSObject {
     }
     
     func storeImage(image: UIImage, completion: @escaping (_ result: URL?) -> Void) {
-        let storageRef = FIRStorage.storage().reference()
-        
-        let uploadData = UIImagePNGRepresentation(image)
-        
-        storageRef.put(uploadData!, metadata: nil) { (metadata, error) in
-            if error != nil {
-                print("Error happened")
-                return
-            }
+        if UIImagePNGRepresentation(image) != nil {
+            let currentImageKeyName = self.imageKeyGenerator()
             
-            completion(metadata?.downloadURL())
+            let storageRef = FIRStorage.storage().reference().child("images/IMG" + currentImageKeyName)
+            let uploadData = UIImagePNGRepresentation(image)
+            
+            storageRef.put(uploadData!, metadata: nil) { (metadata, error) in
+                if error != nil {
+                    print("Error happened")
+                    return
+                }
+                
+                completion(metadata?.downloadURL())
+            }
         }
     }
     
