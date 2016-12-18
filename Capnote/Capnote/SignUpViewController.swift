@@ -7,10 +7,13 @@
 //
 
 import UIKit
+import Firebase
 import FirebaseAuth
+import FirebaseStorage
 
 class SignUpViewController: UIViewController, UITextFieldDelegate, UIImagePickerControllerDelegate, UINavigationControllerDelegate {
     
+    // Outlets and components
     @IBOutlet weak var newUsernameTF: UITextField!
     @IBOutlet weak var newEmailTF: UITextField!
     @IBOutlet weak var newPasswordTF: UITextField!
@@ -18,12 +21,16 @@ class SignUpViewController: UIViewController, UITextFieldDelegate, UIImagePicker
     @IBOutlet weak var newSchoolNameTF: UITextField!
     @IBOutlet weak var newProfileImageUV: UIImageView!
     
+    // private instance variables
+    private var latestSelectedImage: UIImage!
+    var imageContainer = [UIImage]()
+    
     // declare constants
     let imagePicker = UIImagePickerController()
     let imageService = ImageService()
     
-    // models 
-    
+    // models
+    let userModel = UserModel()
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -54,30 +61,58 @@ class SignUpViewController: UIViewController, UITextFieldDelegate, UIImagePicker
         else {
             let inputEmail = self.newEmailTF.text!
             let inputPassword = self.newPasswordTF.text!
+            let currentImageKeyName = imageService.imageKeyGenerator()
             
-            FIRAuth.auth()?.createUser(withEmail: inputEmail, password: inputPassword, completion: { (user, error) in
-                if error == nil {
-                    let inputUsername = self.newUsernameTF.text!
-                    let inputSchool = self.newSchoolNameTF.text!
-                    let inputMajor = self.newMajorTF.text!
-                    let inputImageURL = "Nothing for now"
+            let storageRef = FIRStorage.storage().reference().child("images/" + currentImageKeyName)
+
+            print ("BEFORE IF LET STATEMENT")
+            if let uploadData = UIImagePNGRepresentation(self.newProfileImageUV.image!) {
+                print ("AFTER IF LET STATEMENT BUT BEFORE ")
+                
+                storageRef.put(uploadData, metadata: nil) { (metadata, error) in
+                    if error != nil {
+                        print("Error happened")
+                        return
+                    }
                     
-                    // Here, add the user and its information
-                    // to the database under 'users' table
-                    let userModel = UserModel()
-                    userModel.addUser(username: inputUsername, email: inputEmail, school: inputSchool, major: inputMajor, imageURL: inputImageURL)
+                    print ("AFTER IF LET STATEMENT")
                     
-                    print(inputEmail + " signed up successfully!")
+                    FIRAuth.auth()?.createUser(withEmail: inputEmail, password: inputPassword, completion: { (user, error) in
+                        if error == nil {
+                            let inputUsername = self.newUsernameTF.text!
+                            let inputSchool = self.newSchoolNameTF.text!
+                            let inputMajor = self.newMajorTF.text!
+                            let inputImageURL = "Nothing for now"
+                            
+                            print(self.latestSelectedImage.description, " ", self.latestSelectedImage)
+                            
+                            // self.userModel.addUser(username: inputUsername, email: inputEmail, school: inputSchool, major: inputMajor, imageURL: inputImageURL)
+                            
+                            print(inputEmail + " signed up successfully!")
+                            
+                            
+                            // Here, add the user and its information
+                            // to the database under 'users' table
+                            
+                            
+                            
+                        }
+                        else {
+                            let alertController = UIAlertController(title: "Error", message: error?.localizedDescription, preferredStyle: .alert)
+                            
+                            let defaultAction = UIAlertAction(title: "OK", style: .cancel, handler: nil)
+                            alertController.addAction(defaultAction)
+                            
+                            self.present(alertController, animated: true, completion: nil)
+                        }
+                    })
                 }
-                else {
-                    let alertController = UIAlertController(title: "Error", message: error?.localizedDescription, preferredStyle: .alert)
-                    
-                    let defaultAction = UIAlertAction(title: "OK", style: .cancel, handler: nil)
-                    alertController.addAction(defaultAction)
-                    
-                    self.present(alertController, animated: true, completion: nil)
-                }
-            })
+                
+            }
+            
+  
+            
+  
         }
         
     }
@@ -101,9 +136,13 @@ class SignUpViewController: UIViewController, UITextFieldDelegate, UIImagePicker
      */
     
     func imagePickerController(_ picker: UIImagePickerController, didFinishPickingMediaWithInfo info: [String : Any]) {
+        imageContainer.removeAll()
+        
         if let pickedImage = info[UIImagePickerControllerOriginalImage] as? UIImage {
             let resizedImage = imageService.resizeImage(image: pickedImage, targetSize: CGSize(width: 140, height: 140))
             newProfileImageUV.image = resizedImage
+            self.latestSelectedImage = resizedImage
+            imageContainer.append(resizedImage)
         }
         
         dismiss(animated: true, completion: nil)
@@ -141,9 +180,6 @@ class SignUpViewController: UIViewController, UITextFieldDelegate, UIImagePicker
     
     func setUpLastThingsForView() {
         imageService.formatImageView(imageView: newProfileImageUV)
-        
-        
-      
     }
     
     func deregisterFromKeyboardNotifications(){

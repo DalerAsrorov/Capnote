@@ -7,9 +7,10 @@
 //
 
 import UIKit
+import Firebase
+import FirebaseStorage
 
 class ImageService: NSObject {
-    
     
     func resizeImage(image: UIImage, targetSize: CGSize) -> UIImage {
         let size = image.size
@@ -43,6 +44,26 @@ class ImageService: NSObject {
         imageView.layer.borderWidth = 3.0
         imageView.layer.borderColor = UIColor.white.cgColor
         imageView.layer.cornerRadius = 10.0
+    }
+    
+    func storeImage(image: UIImage, completion: @escaping (_ result: URL?) -> Void) {
+        let storageRef = FIRStorage.storage().reference()
+        
+        let uploadData = UIImagePNGRepresentation(image)
+        
+        storageRef.put(uploadData!, metadata: nil) { (metadata, error) in
+            if error != nil {
+                print("Error happened")
+                return
+            }
+            
+            completion(metadata?.downloadURL())
+        }
+    }
+    
+    func imageKeyGenerator() -> String {
+        let resultKey = String(NSDate().timeIntervalSince1970) + ".png"
+        return resultKey
     }
 
 }
