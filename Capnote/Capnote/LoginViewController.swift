@@ -30,7 +30,6 @@ class LoginViewController: UIViewController, UITextFieldDelegate {
     }
     
     @IBAction func loginUser(_ sender: Any) {
-        print("Prints hello")
         if usernameTF.text == "" || passTF.text == "" {
             let alertController = UIAlertController(title: "Error", message: "Please enter email and password.", preferredStyle: .alert)
             
@@ -42,9 +41,29 @@ class LoginViewController: UIViewController, UITextFieldDelegate {
             let inputEmail = self.usernameTF.text!
             let inputPassword = self.passTF.text!
             
-            print(inputEmail, inputPassword)
             
-            // FIRAuth.auth()?.signIn(withEmail: String, password: <#T##String#>, completion: <#T##FIRAuthResultCallback?##FIRAuthResultCallback?##(FIRUser?, Error?) -> Void#>)
+            FIRAuth.auth()?.signIn(withEmail: inputEmail, password: inputPassword, completion: { (user, error) in
+                if error == nil {
+                    
+                    // The user logged in successfully 
+                    // Direct him to the Feeds page with latest updates 
+                    // of the notes that belong to people the 
+                    // user is subscribed to...
+                    
+                    print(user?.displayName ?? "dfsfds")
+                    print(user?.email ?? "dffds")
+                    print("Logged in successfully. ")
+                }
+                else {
+                    //Tells the user that there is an error and then gets firebase to tell them the error
+                    let alertController = UIAlertController(title: "Error", message: error?.localizedDescription, preferredStyle: .alert)
+                    
+                    let defaultAction = UIAlertAction(title: "OK", style: .cancel, handler: nil)
+                    alertController.addAction(defaultAction)
+                    
+                    self.present(alertController, animated: true, completion: nil)
+                }
+            })
         }
     }
 
