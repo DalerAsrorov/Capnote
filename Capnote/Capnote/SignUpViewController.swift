@@ -62,27 +62,25 @@ class SignUpViewController: UIViewController, UITextFieldDelegate, UIImagePicker
             let inputEmail = self.newEmailTF.text!
             let inputPassword = self.newPasswordTF.text!
             
-            imageService.storeImage(image: self.newProfileImageUV.image!, completion: { (url) in
-                FIRAuth.auth()?.createUser(withEmail: inputEmail, password: inputPassword, completion: { (user, error) in
-                    if error == nil {
+            FIRAuth.auth()?.createUser(withEmail: inputEmail, password: inputPassword, completion: { (user, error) in
+                if error == nil {
+                    self.imageService.storeImage(image: self.newProfileImageUV.image!, completion: { (url) in
                         let inputUsername = self.newUsernameTF.text!
                         let inputSchool = self.newSchoolNameTF.text!
                         let inputMajor = self.newMajorTF.text!
                         let inputImageURL = url?.absoluteString
-                        
                         self.userModel.addUser(username: inputUsername, email: inputEmail, school: inputSchool, major: inputMajor, imageURL: inputImageURL!)
-                        
                         print(inputUsername + " signed up successfully!")
-                    }
-                    else {
-                        let alertController = UIAlertController(title: "Error", message: error?.localizedDescription, preferredStyle: .alert)
-                        
-                        let defaultAction = UIAlertAction(title: "OK", style: .cancel, handler: nil)
-                        alertController.addAction(defaultAction)
-                        
-                        self.present(alertController, animated: true, completion: nil)
-                    }
-                })
+                    })
+                }
+                else {
+                    let alertController = UIAlertController(title: "Error", message: error?.localizedDescription, preferredStyle: .alert)
+                    
+                    let defaultAction = UIAlertAction(title: "OK", style: .cancel, handler: nil)
+                    alertController.addAction(defaultAction)
+                    
+                    self.present(alertController, animated: true, completion: nil)
+                }
             })
             
   
