@@ -96,6 +96,7 @@
                         <outlet property="registerBtn" destination="swY-MF-Tth" id="4ly-F5-31G"/>
                         <outlet property="signInBtn" destination="28X-GV-Pas" id="oIb-NR-wyR"/>
                         <outlet property="usernameTF" destination="8gR-Du-hpd" id="fND-OS-ydA"/>
+                        <segue destination="fSd-MI-UTN" kind="show" identifier="loginSegue" id="xIc-Nr-gCZ"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="XpY-ng-jW3" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -117,7 +118,7 @@
                 </tabBarController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Ue2-6t-nXq" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1200.8" y="-224.4377811094453"/>
+            <point key="canvasLocation" x="1545" y="217"/>
         </scene>
         <!--Sign Up-->
         <scene sceneID="gRW-AM-9Nh">
@@ -285,4 +286,7 @@
     <resources>
         <image name="add-image-icon" width="60" height="60"/>
     </resources>
+    <inferredMetricsTieBreakers>
+        <segue reference="xIc-Nr-gCZ"/>
+    </inferredMetricsTieBreakers>
 </document>
