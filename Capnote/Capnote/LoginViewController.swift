@@ -15,6 +15,8 @@ class LoginViewController: UIViewController, UITextFieldDelegate {
     @IBOutlet weak var signInBtn: UIButton!
     @IBOutlet weak var registerBtn: UIButton!
     
+    private let segueIdentifier: String = "loginSegue"
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         
@@ -45,14 +47,14 @@ class LoginViewController: UIViewController, UITextFieldDelegate {
             FIRAuth.auth()?.signIn(withEmail: inputEmail, password: inputPassword, completion: { (user, error) in
                 if error == nil {
                     
-                    // The user logged in successfully 
-                    // Direct him to the Feeds page with latest updates 
-                    // of the notes that belong to people the 
-                    // user is subscribed to...
-                    
                     print(user?.displayName ?? "dfsfds")
                     print(user?.email ?? "dffds")
                     print("Logged in successfully. ")
+                    
+                    // The user logged in successfully
+                    // 1. Direct him to the Feeds page with latest updates
+                    
+                    self.performSegue(withIdentifier: self.segueIdentifier, sender: self)
                 }
                 else {
                     //Tells the user that there is an error and then gets firebase to tell them the error
@@ -68,6 +70,7 @@ class LoginViewController: UIViewController, UITextFieldDelegate {
     }
 
     @IBAction func registerUser(_ sender: Any) {
+        
     }
     
     
