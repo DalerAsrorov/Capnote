@@ -36,6 +36,9 @@
 		3CFBE5671E08EF4A00F8D48B /* FeedTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3CFBE5661E08EF4A00F8D48B /* FeedTableViewController.swift */; };
 		3CFBE5681E08EF4A00F8D48B /* FeedTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3CFBE5661E08EF4A00F8D48B /* FeedTableViewController.swift */; };
 		3CFBE5691E08EF4A00F8D48B /* FeedTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3CFBE5661E08EF4A00F8D48B /* FeedTableViewController.swift */; };
+		3CFBE56B1E08FF4500F8D48B /* UIServices.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3CFBE56A1E08FF4500F8D48B /* UIServices.swift */; };
+		3CFBE56C1E08FF4500F8D48B /* UIServices.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3CFBE56A1E08FF4500F8D48B /* UIServices.swift */; };
+		3CFBE56D1E08FF4500F8D48B /* UIServices.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3CFBE56A1E08FF4500F8D48B /* UIServices.swift */; };
 		72DB4436C719C9FDB0A5A7C4 /* Pods_Capnote.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = ACCF729233D5163EA72FD564 /* Pods_Capnote.framework */; };
 		73141192CCB45DAE0A6FC84C /* Pods_CapnoteUITests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 2D9C40C3EC6DCD7A8A0AE7E8 /* Pods_CapnoteUITests.framework */; };
 		F5C816ABDF5B56EB8E718622 /* Pods_CapnoteTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 6CEA48A7B57AAF942F7A9DE4 /* Pods_CapnoteTests.framework */; };
@@ -83,6 +86,7 @@
 		3CFBE55E1E05326C00F8D48B /* ImageService.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ImageService.swift; sourceTree = "<group>"; };
 		3CFBE5621E055C8100F8D48B /* UserModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UserModel.swift; sourceTree = "<group>"; };
 		3CFBE5661E08EF4A00F8D48B /* FeedTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FeedTableViewController.swift; sourceTree = "<group>"; };
+		3CFBE56A1E08FF4500F8D48B /* UIServices.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UIServices.swift; sourceTree = "<group>"; };
 		6CEA48A7B57AAF942F7A9DE4 /* Pods_CapnoteTests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_CapnoteTests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		8786C5271E337F1423D35C35 /* Pods-CapnoteUITests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-CapnoteUITests.release.xcconfig"; path = "Pods/Target Support Files/Pods-CapnoteUITests/Pods-CapnoteUITests.release.xcconfig"; sourceTree = "<group>"; };
 		A4622C176E0B19472E8C9FD2 /* Pods-Capnote.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Capnote.debug.xcconfig"; path = "Pods/Target Support Files/Pods-Capnote/Pods-Capnote.debug.xcconfig"; sourceTree = "<group>"; };
@@ -200,6 +204,7 @@
 			isa = PBXGroup;
 			children = (
 				3CFBE55E1E05326C00F8D48B /* ImageService.swift */,
+				3CFBE56A1E08FF4500F8D48B /* UIServices.swift */,
 			);
 			name = Services;
 			sourceTree = "<group>";
@@ -517,6 +522,7 @@
 				3CFBE5671E08EF4A00F8D48B /* FeedTableViewController.swift in Sources */,
 				3CFBE51D1E03A37500F8D48B /* Capnote.xcdatamodeld in Sources */,
 				3CFBE5561E03CE9A00F8D48B /* FeedViewControllerTableViewController.swift in Sources */,
+				3CFBE56B1E08FF4500F8D48B /* UIServices.swift in Sources */,
 				3CFBE5151E03A37500F8D48B /* AppDelegate.swift in Sources */,
 				3CFBE55F1E05326C00F8D48B /* ImageService.swift in Sources */,
 			);
@@ -528,6 +534,7 @@
 			files = (
 				3CFBE5571E03CE9A00F8D48B /* FeedViewControllerTableViewController.swift in Sources */,
 				3CFBE5641E055C8100F8D48B /* UserModel.swift in Sources */,
+				3CFBE56C1E08FF4500F8D48B /* UIServices.swift in Sources */,
 				3CFBE54D1E03B1B100F8D48B /* LoginViewController.swift in Sources */,
 				3CFBE5681E08EF4A00F8D48B /* FeedTableViewController.swift in Sources */,
 				3CFBE52D1E03A37500F8D48B /* CapnoteTests.swift in Sources */,
@@ -543,6 +550,7 @@
 			files = (
 				3CFBE5581E03CE9A00F8D48B /* FeedViewControllerTableViewController.swift in Sources */,
 				3CFBE5651E055C8100F8D48B /* UserModel.swift in Sources */,
+				3CFBE56D1E08FF4500F8D48B /* UIServices.swift in Sources */,
 				3CFBE54E1E03B1B100F8D48B /* LoginViewController.swift in Sources */,
 				3CFBE5691E08EF4A00F8D48B /* FeedTableViewController.swift in Sources */,
 				3CFBE5381E03A37600F8D48B /* CapnoteUITests.swift in Sources */,

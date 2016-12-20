@@ -10,9 +10,12 @@ import UIKit
 
 class FeedTableViewController: UITableViewController {
 
+    private let uiService = UIServices()
+    
     override func viewDidLoad() {
         super.viewDidLoad()
 
+        uiService.hideNavigationBar(controller: self)
         // Uncomment the following line to preserve selection between presentations
         // self.clearsSelectionOnViewWillAppear = false
 
