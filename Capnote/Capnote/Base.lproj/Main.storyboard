@@ -29,7 +29,7 @@
                                         <rect key="frame" x="8" y="120" width="327" height="30"/>
                                         <nil key="textColor"/>
                                         <fontDescription key="fontDescription" name="HelveticaNeue" family="Helvetica Neue" pointSize="19"/>
-                                        <textInputTraits key="textInputTraits"/>
+                                        <textInputTraits key="textInputTraits" secureTextEntry="YES"/>
                                     </textField>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="swY-MF-Tth">
                                         <rect key="frame" x="8" y="215" width="327" height="47"/>
@@ -61,7 +61,7 @@
                                         <rect key="frame" x="8" y="82" width="327" height="30"/>
                                         <nil key="textColor"/>
                                         <fontDescription key="fontDescription" name="HelveticaNeue" family="Helvetica Neue" pointSize="19"/>
-                                        <textInputTraits key="textInputTraits"/>
+                                        <textInputTraits key="textInputTraits" autocorrectionType="no" spellCheckingType="no" returnKeyType="done"/>
                                     </textField>
                                 </subviews>
                                 <color key="backgroundColor" red="1" green="0.44923833970281157" blue="0.30772927670942241" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
@@ -151,7 +151,7 @@
                                         <rect key="frame" x="20" y="268" width="343" height="30"/>
                                         <nil key="textColor"/>
                                         <fontDescription key="fontDescription" name="HelveticaNeue" family="Helvetica Neue" pointSize="15"/>
-                                        <textInputTraits key="textInputTraits"/>
+                                        <textInputTraits key="textInputTraits" secureTextEntry="YES"/>
                                     </textField>
                                     <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" misplaced="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Enter new username" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="iWR-OI-QBk">
                                         <rect key="frame" x="20" y="192" width="343" height="30"/>
@@ -235,7 +235,7 @@
             </objects>
             <point key="canvasLocation" x="1020" y="561.76911544227892"/>
         </scene>
-        <!--Feed-->
+        <!--Feed Table View Controller-->
         <scene sceneID="bbX-mF-7Iw">
             <objects>
                 <tableViewController id="fSd-MI-UTN" customClass="FeedTableViewController" customModule="Capnote" customModuleProvider="target" sceneMemberID="viewController">
@@ -259,7 +259,9 @@
                             <outlet property="delegate" destination="fSd-MI-UTN" id="eu0-T5-ANF"/>
                         </connections>
                     </tableView>
-                    <tabBarItem key="tabBarItem" title="Feed" id="pr2-AF-Vsh"/>
+                    <tabBarItem key="tabBarItem" title="" image="home-30" id="pr2-AF-Vsh">
+                        <inset key="imageInsets" minX="0.0" minY="6" maxX="0.0" maxY="-8"/>
+                    </tabBarItem>
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="uAR-eG-TPz" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
@@ -286,5 +288,6 @@
     </scenes>
     <resources>
         <image name="add-image-icon" width="60" height="60"/>
+        <image name="home-30" width="30" height="30"/>
     </resources>
 </document>
