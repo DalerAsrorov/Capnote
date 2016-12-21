@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		3C73DE171E0A6B4E00B3B748 /* CustomTabBarController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3C73DE161E0A6B4E00B3B748 /* CustomTabBarController.swift */; };
 		3CFBE5151E03A37500F8D48B /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3CFBE5141E03A37500F8D48B /* AppDelegate.swift */; };
 		3CFBE51A1E03A37500F8D48B /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 3CFBE5181E03A37500F8D48B /* Main.storyboard */; };
 		3CFBE51D1E03A37500F8D48B /* Capnote.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 3CFBE51B1E03A37500F8D48B /* Capnote.xcdatamodeld */; };
@@ -65,6 +66,7 @@
 		0FBE4BDB82BA8112E7231148 /* Pods-CapnoteTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-CapnoteTests.release.xcconfig"; path = "Pods/Target Support Files/Pods-CapnoteTests/Pods-CapnoteTests.release.xcconfig"; sourceTree = "<group>"; };
 		2D9C40C3EC6DCD7A8A0AE7E8 /* Pods_CapnoteUITests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_CapnoteUITests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		388B4A6C41FB99087763D01A /* Pods-CapnoteUITests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-CapnoteUITests.debug.xcconfig"; path = "Pods/Target Support Files/Pods-CapnoteUITests/Pods-CapnoteUITests.debug.xcconfig"; sourceTree = "<group>"; };
+		3C73DE161E0A6B4E00B3B748 /* CustomTabBarController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CustomTabBarController.swift; sourceTree = "<group>"; };
 		3CFBE5111E03A37500F8D48B /* Capnote.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Capnote.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		3CFBE5141E03A37500F8D48B /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		3CFBE5191E03A37500F8D48B /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
@@ -148,6 +150,7 @@
 		3CFBE5131E03A37500F8D48B /* Capnote */ = {
 			isa = PBXGroup;
 			children = (
+				3CFBE56E1E0A682C00F8D48B /* Views */,
 				3CFBE55D1E05325000F8D48B /* Services */,
 				3CFBE5501E03B22100F8D48B /* Models */,
 				3CFBE54F1E03B20600F8D48B /* Controllers */,
@@ -207,6 +210,14 @@
 				3CFBE56A1E08FF4500F8D48B /* UIServices.swift */,
 			);
 			name = Services;
+			sourceTree = "<group>";
+		};
+		3CFBE56E1E0A682C00F8D48B /* Views */ = {
+			isa = PBXGroup;
+			children = (
+				3C73DE161E0A6B4E00B3B748 /* CustomTabBarController.swift */,
+			);
+			name = Views;
 			sourceTree = "<group>";
 		};
 		3F8952CF23EDF9637978FA22 /* Pods */ = {
@@ -520,6 +531,7 @@
 				3CFBE5631E055C8100F8D48B /* UserModel.swift in Sources */,
 				3CFBE5521E03B24E00F8D48B /* NotesModel.swift in Sources */,
 				3CFBE5671E08EF4A00F8D48B /* FeedTableViewController.swift in Sources */,
+				3C73DE171E0A6B4E00B3B748 /* CustomTabBarController.swift in Sources */,
 				3CFBE51D1E03A37500F8D48B /* Capnote.xcdatamodeld in Sources */,
 				3CFBE5561E03CE9A00F8D48B /* FeedViewControllerTableViewController.swift in Sources */,
 				3CFBE56B1E08FF4500F8D48B /* UIServices.swift in Sources */,

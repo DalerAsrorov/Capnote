@@ -15,9 +15,19 @@ import IQKeyboardManagerSwift
 class AppDelegate: UIResponder, UIApplicationDelegate {
 
     var window: UIWindow?
-
-
+    
+    // Setting up the RGB representation of the official app colors
+    // Utility used: http://uicolor.xyz/#/hex-to-ui
+    private let barTintColorRGB = UIColor(red:0.90, green:0.32, blue:0.22, alpha:1.0)
+    private let unselectedBarColorRGB = UIColor(red:1.00, green:1.00, blue:1.00, alpha:1.0)
+    private let selectedBarColorRGB = UIColor(red:1.00, green:0.78, blue:0.27, alpha:1.0)
+    
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplicationLaunchOptionsKey: Any]?) -> Bool {
+        
+        // Tab bar apperance management 
+        UITabBar.appearance().barTintColor = barTintColorRGB
+        UITabBarItem.appearance().setTitleTextAttributes([NSForegroundColorAttributeName: selectedBarColorRGB], for: .selected)
+        UITabBarItem.appearance().setTitleTextAttributes([NSForegroundColorAttributeName: unselectedBarColorRGB], for: .normal)
         
         // Keyboard manager
          IQKeyboardManager.sharedManager().enable = true
@@ -29,7 +39,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
             if let error = err {
                 print(error.localizedDescription)
             } else {
-                print(user?.email)
+                print("Successfully authorized the app for Firebase.")
             }
             
         })
