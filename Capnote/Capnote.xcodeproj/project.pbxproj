@@ -7,6 +7,12 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		3C02BF991E0A90D2005F3ADF /* ProfileViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3C02BF981E0A90D2005F3ADF /* ProfileViewController.swift */; };
+		3C02BF9A1E0A90D2005F3ADF /* ProfileViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3C02BF981E0A90D2005F3ADF /* ProfileViewController.swift */; };
+		3C02BF9B1E0A90D2005F3ADF /* ProfileViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3C02BF981E0A90D2005F3ADF /* ProfileViewController.swift */; };
+		3C02BF9D1E0A914A005F3ADF /* AddViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3C02BF9C1E0A914A005F3ADF /* AddViewController.swift */; };
+		3C02BF9E1E0A914A005F3ADF /* AddViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3C02BF9C1E0A914A005F3ADF /* AddViewController.swift */; };
+		3C02BF9F1E0A914A005F3ADF /* AddViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3C02BF9C1E0A914A005F3ADF /* AddViewController.swift */; };
 		3C73DE171E0A6B4E00B3B748 /* CustomTabBarController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3C73DE161E0A6B4E00B3B748 /* CustomTabBarController.swift */; };
 		3CFBE5151E03A37500F8D48B /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3CFBE5141E03A37500F8D48B /* AppDelegate.swift */; };
 		3CFBE51A1E03A37500F8D48B /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 3CFBE5181E03A37500F8D48B /* Main.storyboard */; };
@@ -22,9 +28,6 @@
 		3CFBE5521E03B24E00F8D48B /* NotesModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3CFBE5511E03B24E00F8D48B /* NotesModel.swift */; };
 		3CFBE5531E03B24E00F8D48B /* NotesModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3CFBE5511E03B24E00F8D48B /* NotesModel.swift */; };
 		3CFBE5541E03B24E00F8D48B /* NotesModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3CFBE5511E03B24E00F8D48B /* NotesModel.swift */; };
-		3CFBE5561E03CE9A00F8D48B /* FeedViewControllerTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3CFBE5551E03CE9A00F8D48B /* FeedViewControllerTableViewController.swift */; };
-		3CFBE5571E03CE9A00F8D48B /* FeedViewControllerTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3CFBE5551E03CE9A00F8D48B /* FeedViewControllerTableViewController.swift */; };
-		3CFBE5581E03CE9A00F8D48B /* FeedViewControllerTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3CFBE5551E03CE9A00F8D48B /* FeedViewControllerTableViewController.swift */; };
 		3CFBE55A1E04671200F8D48B /* SignUpViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3CFBE5591E04671200F8D48B /* SignUpViewController.swift */; };
 		3CFBE55B1E04671200F8D48B /* SignUpViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3CFBE5591E04671200F8D48B /* SignUpViewController.swift */; };
 		3CFBE55C1E04671200F8D48B /* SignUpViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3CFBE5591E04671200F8D48B /* SignUpViewController.swift */; };
@@ -66,6 +69,8 @@
 		0FBE4BDB82BA8112E7231148 /* Pods-CapnoteTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-CapnoteTests.release.xcconfig"; path = "Pods/Target Support Files/Pods-CapnoteTests/Pods-CapnoteTests.release.xcconfig"; sourceTree = "<group>"; };
 		2D9C40C3EC6DCD7A8A0AE7E8 /* Pods_CapnoteUITests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_CapnoteUITests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		388B4A6C41FB99087763D01A /* Pods-CapnoteUITests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-CapnoteUITests.debug.xcconfig"; path = "Pods/Target Support Files/Pods-CapnoteUITests/Pods-CapnoteUITests.debug.xcconfig"; sourceTree = "<group>"; };
+		3C02BF981E0A90D2005F3ADF /* ProfileViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ProfileViewController.swift; sourceTree = "<group>"; };
+		3C02BF9C1E0A914A005F3ADF /* AddViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AddViewController.swift; sourceTree = "<group>"; };
 		3C73DE161E0A6B4E00B3B748 /* CustomTabBarController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CustomTabBarController.swift; sourceTree = "<group>"; };
 		3CFBE5111E03A37500F8D48B /* Capnote.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Capnote.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		3CFBE5141E03A37500F8D48B /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
@@ -83,7 +88,6 @@
 		3CFBE5491E03ABD800F8D48B /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
 		3CFBE54B1E03B1B100F8D48B /* LoginViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LoginViewController.swift; sourceTree = "<group>"; };
 		3CFBE5511E03B24E00F8D48B /* NotesModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NotesModel.swift; sourceTree = "<group>"; };
-		3CFBE5551E03CE9A00F8D48B /* FeedViewControllerTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FeedViewControllerTableViewController.swift; sourceTree = "<group>"; };
 		3CFBE5591E04671200F8D48B /* SignUpViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SignUpViewController.swift; sourceTree = "<group>"; };
 		3CFBE55E1E05326C00F8D48B /* ImageService.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ImageService.swift; sourceTree = "<group>"; };
 		3CFBE5621E055C8100F8D48B /* UserModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UserModel.swift; sourceTree = "<group>"; };
@@ -187,9 +191,10 @@
 			isa = PBXGroup;
 			children = (
 				3CFBE54B1E03B1B100F8D48B /* LoginViewController.swift */,
-				3CFBE5551E03CE9A00F8D48B /* FeedViewControllerTableViewController.swift */,
 				3CFBE5591E04671200F8D48B /* SignUpViewController.swift */,
 				3CFBE5661E08EF4A00F8D48B /* FeedTableViewController.swift */,
+				3C02BF981E0A90D2005F3ADF /* ProfileViewController.swift */,
+				3C02BF9C1E0A914A005F3ADF /* AddViewController.swift */,
 			);
 			name = Controllers;
 			sourceTree = "<group>";
@@ -528,12 +533,13 @@
 			files = (
 				3CFBE55A1E04671200F8D48B /* SignUpViewController.swift in Sources */,
 				3CFBE54C1E03B1B100F8D48B /* LoginViewController.swift in Sources */,
+				3C02BF9D1E0A914A005F3ADF /* AddViewController.swift in Sources */,
 				3CFBE5631E055C8100F8D48B /* UserModel.swift in Sources */,
 				3CFBE5521E03B24E00F8D48B /* NotesModel.swift in Sources */,
 				3CFBE5671E08EF4A00F8D48B /* FeedTableViewController.swift in Sources */,
 				3C73DE171E0A6B4E00B3B748 /* CustomTabBarController.swift in Sources */,
+				3C02BF991E0A90D2005F3ADF /* ProfileViewController.swift in Sources */,
 				3CFBE51D1E03A37500F8D48B /* Capnote.xcdatamodeld in Sources */,
-				3CFBE5561E03CE9A00F8D48B /* FeedViewControllerTableViewController.swift in Sources */,
 				3CFBE56B1E08FF4500F8D48B /* UIServices.swift in Sources */,
 				3CFBE5151E03A37500F8D48B /* AppDelegate.swift in Sources */,
 				3CFBE55F1E05326C00F8D48B /* ImageService.swift in Sources */,
@@ -544,8 +550,9 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				3CFBE5571E03CE9A00F8D48B /* FeedViewControllerTableViewController.swift in Sources */,
+				3C02BF9E1E0A914A005F3ADF /* AddViewController.swift in Sources */,
 				3CFBE5641E055C8100F8D48B /* UserModel.swift in Sources */,
+				3C02BF9A1E0A90D2005F3ADF /* ProfileViewController.swift in Sources */,
 				3CFBE56C1E08FF4500F8D48B /* UIServices.swift in Sources */,
 				3CFBE54D1E03B1B100F8D48B /* LoginViewController.swift in Sources */,
 				3CFBE5681E08EF4A00F8D48B /* FeedTableViewController.swift in Sources */,
@@ -560,8 +567,9 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				3CFBE5581E03CE9A00F8D48B /* FeedViewControllerTableViewController.swift in Sources */,
+				3C02BF9F1E0A914A005F3ADF /* AddViewController.swift in Sources */,
 				3CFBE5651E055C8100F8D48B /* UserModel.swift in Sources */,
+				3C02BF9B1E0A90D2005F3ADF /* ProfileViewController.swift in Sources */,
 				3CFBE56D1E08FF4500F8D48B /* UIServices.swift in Sources */,
 				3CFBE54E1E03B1B100F8D48B /* LoginViewController.swift in Sources */,
 				3CFBE5691E08EF4A00F8D48B /* FeedTableViewController.swift in Sources */,

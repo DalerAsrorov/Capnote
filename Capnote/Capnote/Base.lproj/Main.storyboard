@@ -115,6 +115,7 @@
                     <connections>
                         <segue destination="fSd-MI-UTN" kind="relationship" relationship="viewControllers" id="0wf-AU-Yec"/>
                         <segue destination="yzu-U9-dm3" kind="relationship" relationship="viewControllers" id="qaf-sg-OL6"/>
+                        <segue destination="a3n-3A-f6L" kind="relationship" relationship="viewControllers" id="3KL-od-3hu"/>
                     </connections>
                 </tabBarController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Ue2-6t-nXq" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -268,10 +269,31 @@
             </objects>
             <point key="canvasLocation" x="2252" y="-371.06446776611699"/>
         </scene>
-        <!--View Controller-->
+        <!--Profile View Controller-->
+        <scene sceneID="oGU-aF-ey5">
+            <objects>
+                <viewController id="a3n-3A-f6L" customClass="ProfileViewController" customModule="Capnote" customModuleProvider="target" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="da6-bS-9Cg"/>
+                        <viewControllerLayoutGuide type="bottom" id="jxA-nK-60T"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="0mb-nL-nxp">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                    </view>
+                    <tabBarItem key="tabBarItem" title="" id="anP-6R-kEo">
+                        <inset key="imageInsets" minX="0.0" minY="6" maxX="0.0" maxY="-8"/>
+                    </tabBarItem>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="cL8-sv-bgs" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1794" y="671"/>
+        </scene>
+        <!--Add View Controller-->
         <scene sceneID="QLJ-aj-LGQ">
             <objects>
-                <viewController id="yzu-U9-dm3" sceneMemberID="viewController">
+                <viewController id="yzu-U9-dm3" customClass="AddViewController" customModule="Capnote" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="vCf-XC-4PY"/>
                         <viewControllerLayoutGuide type="bottom" id="1r0-HM-bHp"/>
@@ -279,7 +301,7 @@
                     <view key="view" contentMode="scaleToFill" id="Mmo-k1-Wpc">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <color key="backgroundColor" white="0.66666666666666663" alpha="1" colorSpace="calibratedWhite"/>
                     </view>
                     <tabBarItem key="tabBarItem" title="" id="Upn-8W-l2u">
                         <inset key="imageInsets" minX="0.0" minY="6" maxX="0.0" maxY="-8"/>
