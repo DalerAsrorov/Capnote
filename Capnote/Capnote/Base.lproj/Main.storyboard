@@ -260,7 +260,7 @@
                             <outlet property="delegate" destination="fSd-MI-UTN" id="eu0-T5-ANF"/>
                         </connections>
                     </tableView>
-                    <tabBarItem key="tabBarItem" title="" image="home-30" id="pr2-AF-Vsh">
+                    <tabBarItem key="tabBarItem" title="" id="pr2-AF-Vsh">
                         <inset key="imageInsets" minX="0.0" minY="6" maxX="0.0" maxY="-8"/>
                     </tabBarItem>
                 </tableViewController>
@@ -281,7 +281,7 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                     </view>
-                    <tabBarItem key="tabBarItem" title="" image="plus-filled-30" id="Upn-8W-l2u">
+                    <tabBarItem key="tabBarItem" title="" id="Upn-8W-l2u">
                         <inset key="imageInsets" minX="0.0" minY="6" maxX="0.0" maxY="-8"/>
                     </tabBarItem>
                 </viewController>
@@ -310,7 +310,5 @@
     </scenes>
     <resources>
         <image name="add-image-icon" width="60" height="60"/>
-        <image name="home-30" width="30" height="30"/>
-        <image name="plus-filled-30" width="30" height="30"/>
     </resources>
 </document>

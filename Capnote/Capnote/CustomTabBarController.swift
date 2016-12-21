@@ -13,8 +13,8 @@ class CustomTabBarController: UITabBarController {
     private let barTintColorRGB = UIColor(red:0.90, green:0.32, blue:0.22, alpha:1.0)
     private let unselectedBarColorRGB = UIColor(red:1.00, green:1.00, blue:1.00, alpha:1.0)
     private let selectedBarColorRGB = UIColor(red:1.00, green:0.78, blue:0.27, alpha:1.0)
-    private let arrayOfImageNameForSelectedState = ["home-30", "plus-filled-30"]
-    private let arrayOfImageNameForUnselectedState = ["home-30", "plus-filled-30"]
+    private let arrayOfImageNameForSelectedState = ["home-selected-1x", "add-selected-1x"]
+    private let arrayOfImageNameForUnselectedState = ["home-unselected-1x", "add-unselected-1x"]
     
     override func viewDidLoad() {
         super.viewDidLoad()
