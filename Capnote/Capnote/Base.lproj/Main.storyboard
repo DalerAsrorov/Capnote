@@ -103,10 +103,10 @@
             </objects>
             <point key="canvasLocation" x="356" y="-121.88905547226388"/>
         </scene>
-        <!--Tab Bar Controller-->
+        <!--Custom Tab Bar Controller-->
         <scene sceneID="1wW-Yd-38G">
             <objects>
-                <tabBarController id="Mej-3i-qZB" sceneMemberID="viewController">
+                <tabBarController id="Mej-3i-qZB" customClass="CustomTabBarController" customModule="Capnote" customModuleProvider="target" sceneMemberID="viewController">
                     <tabBar key="tabBar" contentMode="scaleToFill" id="vto-kZ-aos">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="49"/>
                         <autoresizingMask key="autoresizingMask"/>

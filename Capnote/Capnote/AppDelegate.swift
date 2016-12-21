@@ -26,8 +26,11 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         
         // Tab bar apperance management 
         UITabBar.appearance().barTintColor = barTintColorRGB
-        UITabBarItem.appearance().setTitleTextAttributes([NSForegroundColorAttributeName: selectedBarColorRGB], for: .selected)
-        UITabBarItem.appearance().setTitleTextAttributes([NSForegroundColorAttributeName: unselectedBarColorRGB], for: .normal)
+        // UITabBar.appearance().tintColor = selectedBarColorRGB
+       
+        // Tab bar item apperance management
+       // UITabBarItem.appearance().setTitleTextAttributes([NSForegroundColorAttributeName: selectedBarColorRGB], for: .selected)
+       // UITabBarItem.appearance().setTitleTextAttributes([NSForegroundColorAttributeName: unselectedBarColorRGB], for: .normal)
         
         // Keyboard manager
          IQKeyboardManager.sharedManager().enable = true
