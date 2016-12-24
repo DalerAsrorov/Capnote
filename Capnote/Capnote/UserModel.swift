@@ -16,9 +16,10 @@ class UserModel: NSObject {
         ref = FIRDatabase.database().reference()
     }
     
-    func addUser(username: String, email: String, school: String, major: String, imageURL: String) {
+    func addUser(username: String, email: String, school: String, major: String, imageURL: String, numberOfSubs: Int?) {
         self.ref.child("users").child(username).setValue([
             "info": ["major": major, "school": school],
+            "stats": ["numOfSubs": numberOfSubs],
             "email": email,
             "img": imageURL
         ])

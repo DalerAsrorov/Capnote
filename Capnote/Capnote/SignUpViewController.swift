@@ -28,6 +28,8 @@ class SignUpViewController: UIViewController, UITextFieldDelegate, UIImagePicker
     // declare constants
     let imagePicker = UIImagePickerController()
     let imageService = ImageService()
+    let segueIdentifier = "signUpSegue"
+    let numberOfSubs = 0
     
     // models
     let userModel = UserModel()
@@ -69,8 +71,13 @@ class SignUpViewController: UIViewController, UITextFieldDelegate, UIImagePicker
                         let inputSchool = self.newSchoolNameTF.text!
                         let inputMajor = self.newMajorTF.text!
                         let inputImageURL = url?.absoluteString
-                        self.userModel.addUser(username: inputUsername, email: inputEmail, school: inputSchool, major: inputMajor, imageURL: inputImageURL!)
+                        
+                        self.userModel.addUser(username: inputUsername, email: inputEmail, school: inputSchool, major: inputMajor, imageURL: inputImageURL!, numberOfSubs: self.numberOfSubs)
                         print(inputUsername + " signed up successfully!")
+                        
+                        // User signed up successfully 
+                        // Direct him to the main page "Feed"
+                        self.performSegue(withIdentifier: self.segueIdentifier, sender: self)
                     })
                 }
                 else {
