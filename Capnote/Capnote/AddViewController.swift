@@ -30,9 +30,15 @@ class AddViewController: UIViewController {
     }
     
     func loadCustomStyleToView() {
+        // Adding border radius to buttons
         self.takePhotoBtn.layer.cornerRadius = self.uiService.buttonRoundRadius
         self.uploadPhotoBtn.layer.cornerRadius = self.uiService.buttonRoundRadius
         
+        // Adding border width and its color
+        self.takePhotoBtn.layer.borderWidth = 1
+        self.uploadPhotoBtn.layer.borderWidth = 1
+        self.takePhotoBtn.layer.borderColor = self.uiService.baseColorCG
+        self.uploadPhotoBtn.layer.borderColor = self.uiService.baseColorCG
     }
     
 
