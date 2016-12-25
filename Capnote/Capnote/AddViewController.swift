@@ -9,9 +9,17 @@
 import UIKit
 
 class AddViewController: UIViewController {
-
+    
+    // Outlets
+    @IBOutlet weak var takePhotoBtn: UIButton!
+    @IBOutlet weak var uploadPhotoBtn: UIButton!
+    
+    // Constants
+    let uiService = UIServices()
+    
     override func viewDidLoad() {
         super.viewDidLoad()
+        loadCustomStyleToView()
 
         // Do any additional setup after loading the view.
     }
@@ -19,6 +27,12 @@ class AddViewController: UIViewController {
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
+    }
+    
+    func loadCustomStyleToView() {
+        self.takePhotoBtn.layer.cornerRadius = self.uiService.buttonRoundRadius
+        self.uploadPhotoBtn.layer.cornerRadius = self.uiService.buttonRoundRadius
+        
     }
     
 
