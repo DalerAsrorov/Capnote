@@ -303,10 +303,6 @@
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="5yc-UH-Z7v">
-                                <rect key="frame" x="16" y="249" width="343" height="60"/>
-                                <color key="backgroundColor" red="1" green="0.7843137255" blue="0.2666666667" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                            </view>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="GF1-Ln-eiQ">
                                 <rect key="frame" x="16" y="28" width="343" height="213"/>
                                 <subviews>
@@ -336,11 +332,28 @@
                                     <constraint firstItem="l1C-ZP-2G4" firstAttribute="trailing" secondItem="GF1-Ln-eiQ" secondAttribute="trailingMargin" constant="8" id="x1y-VF-DgI"/>
                                 </constraints>
                             </view>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="5yc-UH-Z7v">
+                                <rect key="frame" x="16" y="242" width="343" height="52"/>
+                                <subviews>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Your images will appear here..." textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="oql-ey-wP8">
+                                        <rect key="frame" x="8" y="16" width="327" height="21"/>
+                                        <fontDescription key="fontDescription" name="HelveticaNeue-LightItalic" family="Helvetica Neue" pointSize="17"/>
+                                        <nil key="textColor"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                </subviews>
+                                <constraints>
+                                    <constraint firstItem="oql-ey-wP8" firstAttribute="top" secondItem="5yc-UH-Z7v" secondAttribute="top" constant="16" id="2v2-Er-xPE"/>
+                                    <constraint firstItem="oql-ey-wP8" firstAttribute="centerY" secondItem="5yc-UH-Z7v" secondAttribute="centerY" id="Zpa-39-I0u"/>
+                                    <constraint firstItem="oql-ey-wP8" firstAttribute="leading" secondItem="5yc-UH-Z7v" secondAttribute="leadingMargin" id="coi-1T-lMp"/>
+                                    <constraint firstItem="oql-ey-wP8" firstAttribute="trailing" secondItem="5yc-UH-Z7v" secondAttribute="trailingMargin" id="fP8-XV-Dfr"/>
+                                </constraints>
+                            </view>
                         </subviews>
                         <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <constraints>
-                            <constraint firstItem="5yc-UH-Z7v" firstAttribute="top" secondItem="GF1-Ln-eiQ" secondAttribute="bottom" constant="8" symbolic="YES" id="61I-p7-F7r"/>
-                            <constraint firstItem="1r0-HM-bHp" firstAttribute="top" secondItem="5yc-UH-Z7v" secondAttribute="bottom" constant="309" id="9iX-F2-uUK"/>
+                            <constraint firstItem="5yc-UH-Z7v" firstAttribute="top" secondItem="GF1-Ln-eiQ" secondAttribute="bottom" constant="1" id="61I-p7-F7r"/>
+                            <constraint firstItem="1r0-HM-bHp" firstAttribute="top" secondItem="5yc-UH-Z7v" secondAttribute="bottom" constant="324" id="9iX-F2-uUK"/>
                             <constraint firstItem="GF1-Ln-eiQ" firstAttribute="leading" secondItem="5yc-UH-Z7v" secondAttribute="leading" id="Gfe-67-gfy"/>
                             <constraint firstAttribute="bottom" secondItem="GF1-Ln-eiQ" secondAttribute="bottom" constant="426" id="Llb-iz-Q7l"/>
                             <constraint firstItem="GF1-Ln-eiQ" firstAttribute="top" secondItem="vCf-XC-4PY" secondAttribute="bottom" constant="8" id="WJ6-dv-b3h"/>
@@ -353,6 +366,8 @@
                         <inset key="imageInsets" minX="0.0" minY="6" maxX="0.0" maxY="-8"/>
                     </tabBarItem>
                     <connections>
+                        <outlet property="imageContainerLabel" destination="oql-ey-wP8" id="j5b-XS-g4o"/>
+                        <outlet property="imageContainerView" destination="5yc-UH-Z7v" id="EMi-WL-6Rl"/>
                         <outlet property="takePhotoBtn" destination="FIf-BU-Mpj" id="NRq-e4-NSg"/>
                         <outlet property="uploadPhotoBtn" destination="l1C-ZP-2G4" id="7O2-OS-c3N"/>
                     </connections>
