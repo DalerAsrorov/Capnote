@@ -24,6 +24,7 @@ class AddViewController: UIViewController, UINavigationControllerDelegate,
     var imagePicker: UIImagePickerController!
     var imageContainerWidth: CGFloat = 0.0
     var imageContainerHeight: CGFloat = 0.0
+    var imageViewXAxis: CGFloat = 5.0
     
     // Static variables 
     private var imagesArray = [UIImage]()
@@ -124,11 +125,14 @@ class AddViewController: UIViewController, UINavigationControllerDelegate,
     
     func addChosenImageToImageContainer(image: UIImage) {
         let newImageView = UIImageView(image: image)
-        let imageViewWidth = self.imageContainerWidth / 6.4
+        let imageViewWidth = self.imageContainerWidth / 6.68
         let imageViewHeight = self.imageContainerHeight / 1.2
+        let imageViewYAxis = self.imageContainerHeight / 11.5
         
-        newImageView.frame = CGRect(x: 0, y: 0, width: imageViewWidth, height: imageViewHeight)
+        newImageView.frame = CGRect(x: self.imageViewXAxis, y: imageViewYAxis, width: imageViewWidth, height: imageViewHeight)
         self.imageContainerView.addSubview(newImageView)
+        
+        self.imageViewXAxis += imageViewWidth + 5.0
     }
     /*
     // MARK: - Navigation
