@@ -8,7 +8,9 @@
 
 import UIKit
 
-class AddViewController: UIViewController {
+class AddViewController: UIViewController, UINavigationControllerDelegate,
+    UIImagePickerControllerDelegate
+{
     
     // Outlets
     @IBOutlet weak var takePhotoBtn: UIButton!
@@ -16,8 +18,11 @@ class AddViewController: UIViewController {
     @IBOutlet weak var imageContainerView: UIView!
     @IBOutlet weak var imageContainerLabel: UILabel!
     
-    // Constants
+    // Constant
     let uiService = UIServices()
+    
+    // Variable(s) for image pickers
+    var imagePicker: UIImagePickerController!
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -29,6 +34,53 @@ class AddViewController: UIViewController {
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
+    }
+    
+    /*
+     * Action method handler that responds
+     * to user's tap and opens camera.
+     * Once the photo is taken, the token photo 
+     * should appear in the view box
+     */
+    @IBAction func takePhoto(_ sender: Any) {
+        self.imagePicker = UIImagePickerController()
+
+        if UIImagePickerController.isSourceTypeAvailable(.camera)
+        {
+            self.imagePicker.delegate = self
+            self.imagePicker.sourceType = .camera
+            present(self.imagePicker, animated: true, completion: nil)
+        }
+        else
+        {
+            print("The device has no camera...")
+        }
+        
+    }
+    
+    /* 
+     * Private method connected to the ImagePicker 
+     * delegate that receives the taken photo.
+     */
+    func imagePickerController(_ picker: UIImagePickerController, didFinishPickingMediaWithInfo info: [String : Any]) {
+        imagePicker.dismiss(animated: true, completion: nil)
+        
+        let takenImage = info[UIImagePickerControllerOriginalImage] as? UIImage
+        
+        print("image successfully taken")
+        print(takenImage)
+        
+        //imageView.image = info[UIImagePickerControllerOriginalImage] as? UIImage
+    }
+    
+    /*
+     * Action method handler that responds
+     * to user's tap and opens the gallery.
+     * Should allow the user to choose multiple
+     * photos and show them in the view box
+     */
+    @IBAction func getPhotoFromLibrary(_ sender: Any) {
+        
     }
     
     func loadCustomStyleToView() {
