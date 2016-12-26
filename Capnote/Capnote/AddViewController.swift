@@ -29,6 +29,7 @@ class AddViewController: UIViewController, UINavigationControllerDelegate,
         loadCustomStyleToView()
 
         // Do any additional setup after loading the view.
+        self.imagePicker = UIImagePickerController()
     }
 
     override func didReceiveMemoryWarning() {
@@ -43,7 +44,6 @@ class AddViewController: UIViewController, UINavigationControllerDelegate,
      * should appear in the view box
      */
     @IBAction func takePhoto(_ sender: Any) {
-        self.imagePicker = UIImagePickerController()
 
         if UIImagePickerController.isSourceTypeAvailable(.camera)
         {
@@ -65,10 +65,10 @@ class AddViewController: UIViewController, UINavigationControllerDelegate,
     func imagePickerController(_ picker: UIImagePickerController, didFinishPickingMediaWithInfo info: [String : Any]) {
         imagePicker.dismiss(animated: true, completion: nil)
         
-        let takenImage = info[UIImagePickerControllerOriginalImage] as? UIImage
+        let chosenImage = info[UIImagePickerControllerOriginalImage] as! UIImage
         
-        print("image successfully taken")
-        print(takenImage)
+        print("image successfully received")
+        print(chosenImage)
         
         //imageView.image = info[UIImagePickerControllerOriginalImage] as? UIImage
     }
@@ -80,7 +80,14 @@ class AddViewController: UIViewController, UINavigationControllerDelegate,
      * photos and show them in the view box
      */
     @IBAction func getPhotoFromLibrary(_ sender: Any) {
-        
+        self.imagePicker.delegate = self
+        self.imagePicker.sourceType = .photoLibrary
+        self.imagePicker.allowsEditing = false
+        self.present(self.imagePicker, animated: true, completion: nil)
+    }
+    
+    func imagePickerControllerDidCancel(_ picker: UIImagePickerController) {
+        self.dismiss(animated: true, completion: nil)
     }
     
     func loadCustomStyleToView() {
