@@ -11,7 +11,6 @@ import UIKit
 class AddViewController: UIViewController, UINavigationControllerDelegate,
     UIImagePickerControllerDelegate
 {
-    
     // Outlets
     @IBOutlet weak var takePhotoBtn: UIButton!
     @IBOutlet weak var uploadPhotoBtn: UIButton!
@@ -23,6 +22,9 @@ class AddViewController: UIViewController, UINavigationControllerDelegate,
     
     // Variable(s) for image pickers
     var imagePicker: UIImagePickerController!
+    
+    // Static variables 
+    private var imagesArray = [UIImage]()
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -63,9 +65,13 @@ class AddViewController: UIViewController, UINavigationControllerDelegate,
      * delegate that receives the taken photo.
      */
     func imagePickerController(_ picker: UIImagePickerController, didFinishPickingMediaWithInfo info: [String : Any]) {
-        imagePicker.dismiss(animated: true, completion: nil)
+        imageIsChosen()
         
+        imagePicker.dismiss(animated: true, completion: nil)
         let chosenImage = info[UIImagePickerControllerOriginalImage] as! UIImage
+        
+        self.imagesArray.append(chosenImage)
+        print(self.imagesArray)
         
         print("image successfully received")
         print(chosenImage)
@@ -106,7 +112,11 @@ class AddViewController: UIViewController, UINavigationControllerDelegate,
         self.imageContainerView.layer.borderColor = self.uiService.baseColorCG
     }
     
-
+    
+    func imageIsChosen() -> Bool {
+        self.imageContainerLabel.text = ""
+        return true
+    }
     /*
     // MARK: - Navigation
 
