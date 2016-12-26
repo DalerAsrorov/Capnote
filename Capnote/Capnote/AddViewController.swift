@@ -17,11 +17,13 @@ class AddViewController: UIViewController, UINavigationControllerDelegate,
     @IBOutlet weak var imageContainerView: UIView!
     @IBOutlet weak var imageContainerLabel: UILabel!
     
-    // Constant
+    // Constants
     let uiService = UIServices()
     
-    // Variable(s) for image pickers
+    // Variables
     var imagePicker: UIImagePickerController!
+    var imageContainerWidth: CGFloat = 0.0
+    var imageContainerHeight: CGFloat = 0.0
     
     // Static variables 
     private var imagesArray = [UIImage]()
@@ -32,6 +34,8 @@ class AddViewController: UIViewController, UINavigationControllerDelegate,
 
         // Do any additional setup after loading the view.
         self.imagePicker = UIImagePickerController()
+        self.imageContainerWidth = self.imageContainerView.frame.size.width
+        self.imageContainerHeight = self.imageContainerView.frame.size.height
     }
 
     override func didReceiveMemoryWarning() {
@@ -47,14 +51,12 @@ class AddViewController: UIViewController, UINavigationControllerDelegate,
      */
     @IBAction func takePhoto(_ sender: Any) {
 
-        if UIImagePickerController.isSourceTypeAvailable(.camera)
-        {
+        if UIImagePickerController.isSourceTypeAvailable(.camera) {
             self.imagePicker.delegate = self
             self.imagePicker.sourceType = .camera
             present(self.imagePicker, animated: true, completion: nil)
         }
-        else
-        {
+        else {
             print("The device has no camera...")
         }
         
@@ -69,6 +71,8 @@ class AddViewController: UIViewController, UINavigationControllerDelegate,
         
         imagePicker.dismiss(animated: true, completion: nil)
         let chosenImage = info[UIImagePickerControllerOriginalImage] as! UIImage
+        
+        addChosenImageToImageContainer(image: chosenImage)
         
         self.imagesArray.append(chosenImage)
         print(self.imagesArray)
@@ -116,6 +120,15 @@ class AddViewController: UIViewController, UINavigationControllerDelegate,
     func imageIsChosen() -> Bool {
         self.imageContainerLabel.text = ""
         return true
+    }
+    
+    func addChosenImageToImageContainer(image: UIImage) {
+        let newImageView = UIImageView(image: image)
+        let imageViewWidth = self.imageContainerWidth / 6.4
+        let imageViewHeight = self.imageContainerHeight / 1.2
+        
+        newImageView.frame = CGRect(x: 0, y: 0, width: imageViewWidth, height: imageViewHeight)
+        self.imageContainerView.addSubview(newImageView)
     }
     /*
     // MARK: - Navigation
