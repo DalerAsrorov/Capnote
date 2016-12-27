@@ -14,17 +14,20 @@ class AddViewController: UIViewController, UINavigationControllerDelegate,
     // Outlets
     @IBOutlet weak var takePhotoBtn: UIButton!
     @IBOutlet weak var uploadPhotoBtn: UIButton!
-    @IBOutlet weak var imageContainerView: UIView!
+//    @IBOutlet weak var imageContainerView: UIView!
     @IBOutlet weak var imageContainerLabel: UILabel!
+    @IBOutlet weak var scrollView: UIScrollView!
     
     // Constants
     let uiService = UIServices()
+    let scrollViewHeight = CGFloat(25)
     
     // Variables
     var imagePicker: UIImagePickerController!
     var imageContainerWidth: CGFloat = 0.0
     var imageContainerHeight: CGFloat = 0.0
     var imageViewXAxis: CGFloat = 5.0
+    var counterOfImagesUploaded = 1
     
     // Static variables 
     private var imagesArray = [UIImage]()
@@ -35,8 +38,15 @@ class AddViewController: UIViewController, UINavigationControllerDelegate,
 
         // Do any additional setup after loading the view.
         self.imagePicker = UIImagePickerController()
-        self.imageContainerWidth = self.imageContainerView.frame.size.width
-        self.imageContainerHeight = self.imageContainerView.frame.size.height
+        self.imageContainerWidth = self.scrollView.frame.size.width
+        self.imageContainerHeight = self.scrollView.frame.size.height
+    }
+    
+    override func viewDidLayoutSubviews() {
+        self.scrollView.contentSize = CGSize (
+            width: self.scrollView.contentSize.width,
+            height: self.scrollViewHeight
+        )
     }
 
     override func didReceiveMemoryWarning() {
@@ -113,8 +123,8 @@ class AddViewController: UIViewController, UINavigationControllerDelegate,
         self.uploadPhotoBtn.layer.borderColor = self.uiService.baseColorCG
         
         // Adding style to the image container
-        self.imageContainerView.layer.borderWidth = self.uiService.borderWidth
-        self.imageContainerView.layer.borderColor = self.uiService.baseColorCG
+        self.scrollView.layer.borderWidth = self.uiService.borderWidth
+        self.scrollView.layer.borderColor = self.uiService.baseColorCG
     }
     
     
@@ -130,9 +140,38 @@ class AddViewController: UIViewController, UINavigationControllerDelegate,
         let imageViewYAxis = self.imageContainerHeight / 11.5
         
         newImageView.frame = CGRect(x: self.imageViewXAxis, y: imageViewYAxis, width: imageViewWidth, height: imageViewHeight)
-        self.imageContainerView.addSubview(newImageView)
+        //self.imageContainerView.addSubview(newImageView)
+        
+        if self.counterOfImagesUploaded > 5 {
+          print("Here ")
+          let newScrollViewSize = self.scrollView.frame.size.width + imageViewWidth + 10
+            print("newScrollViewSize: ", newScrollViewSize)
+          // self.scrollView.frame.size.width = 2000
+          // self.scrollView.frame.size = CGSize(width: 2000, height: self.scrollView.frame.size.height)
+          updateScrollViewSize()
+        }
+
+        self.scrollView.addSubview(newImageView)
         
         self.imageViewXAxis += imageViewWidth + 5.0
+        self.counterOfImagesUploaded += 1
+        
+        print("counterOfImagesUploaded: ", self.counterOfImagesUploaded)
+    }
+    
+    func updateScrollViewSize() {
+        var contentRect = CGRect.zero
+        
+        for var currentView in self.scrollView.subviews {
+            contentRect = contentRect.union(currentView.frame)
+        }
+        
+        print("THE SIZE SHOULD BE HERE")
+        contentRect.size.height = self.imageContainerHeight
+        contentRect.size.width = contentRect.size.width + (self.scrollView.subviews[0].frame.size.width / 6.5)
+        print(self.scrollView.subviews[0].frame.size.width)
+        
+        self.scrollView.contentSize = contentRect.size;
     }
     /*
     // MARK: - Navigation
