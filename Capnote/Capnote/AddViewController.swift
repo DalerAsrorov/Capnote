@@ -21,6 +21,7 @@ class AddViewController: UIViewController, UINavigationControllerDelegate,
     let uiService = UIServices()
     let scrollViewHeight = CGFloat(25)
     let removeImage = UIImage(named: "remove-x")
+    let initialXAxisPos: CGFloat = 5.0
     
     // Variables
     var imagePicker: UIImagePickerController!
@@ -156,7 +157,13 @@ class AddViewController: UIViewController, UINavigationControllerDelegate,
         
         buttonInsideImage.frame = CGRect(x: 15, y: 10, width: 20, height: 20)
         buttonInsideImage.setImage(self.removeImage, for: .normal)
-        buttonInsideImage.addTarget(self, action: #selector(buttonInsideImageTouched), for: .touchUpInside)
+//        buttonInsideImage.addTarget(self, action: #selector(buttonInsideImageTouched), for: .touchUpInside)
+        
+        // Event hanlder for each uiimage
+        let tapGestureRecognizer = UITapGestureRecognizer(target:self, action:#selector(imageTapped(imgView:)))
+        newImageView.isUserInteractionEnabled = true
+        newImageView.addGestureRecognizer(tapGestureRecognizer)
+        
         
         newImageView.frame = CGRect(x: self.imageViewXAxis, y: imageViewYAxis, width: imageViewWidth, height: imageViewHeight)
         
@@ -174,6 +181,17 @@ class AddViewController: UIViewController, UINavigationControllerDelegate,
         self.counterOfImagesUploaded += 1
         
         print("counterOfImagesUploaded: ", self.counterOfImagesUploaded)
+    }
+    
+    func imageTapped(imgView: AnyObject) {
+        print(":::Image tapped::: \n **Trying to remove image view.**")
+        print(imgView.view!)
+        
+        // remove the tapped image from the view
+        imgView.view!.removeFromSuperview()
+        
+        // 
+        self.imageViewXAxis = self.initialXAxisPos
     }
     
     func buttonInsideImageTouched(sender: UIButton!) {
