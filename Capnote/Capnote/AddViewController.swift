@@ -14,13 +14,13 @@ class AddViewController: UIViewController, UINavigationControllerDelegate,
     // Outlets
     @IBOutlet weak var takePhotoBtn: UIButton!
     @IBOutlet weak var uploadPhotoBtn: UIButton!
-//    @IBOutlet weak var imageContainerView: UIView!
     @IBOutlet weak var imageContainerLabel: UILabel!
     @IBOutlet weak var scrollView: UIScrollView!
     
     // Constants
     let uiService = UIServices()
     let scrollViewHeight = CGFloat(25)
+    let removeImage = UIImage(named: "remove-x")
     
     // Variables
     var imagePicker: UIImagePickerController!
@@ -28,6 +28,8 @@ class AddViewController: UIViewController, UINavigationControllerDelegate,
     var imageContainerHeight: CGFloat = 0.0
     var imageViewXAxis: CGFloat = 5.0
     var counterOfImagesUploaded = 1
+    var buttonInsideImageHeight: CGFloat = 0.0
+    var buttonInsideImageWidth: CGFloat = 0.0
     
     // Static variables 
     private var imagesArray = [UIImage]()
@@ -40,6 +42,11 @@ class AddViewController: UIViewController, UINavigationControllerDelegate,
         self.imagePicker = UIImagePickerController()
         self.imageContainerWidth = self.scrollView.frame.size.width
         self.imageContainerHeight = self.scrollView.frame.size.height
+        
+        // Adjust buttons inside of image constants 
+        self.buttonInsideImageWidth = self.imageContainerWidth / 2
+        self.buttonInsideImageHeight = self.imageContainerHeight / 2
+        
     }
     
     override func viewDidLayoutSubviews() {
@@ -134,29 +141,43 @@ class AddViewController: UIViewController, UINavigationControllerDelegate,
     }
     
     func addChosenImageToImageContainer(image: UIImage) {
+        
+        // code for image
         let newImageView = UIImageView(image: image)
         let imageViewWidth = self.imageContainerWidth / 6.68
         let imageViewHeight = self.imageContainerHeight / 1.2
         let imageViewYAxis = self.imageContainerHeight / 11.5
         
+        
+        
+        // code for button inside of an image
+        let buttonInsideImage = UIButton(type: .custom) as UIButton
+        
+        
+        buttonInsideImage.frame = CGRect(x: 15, y: 10, width: 20, height: 20)
+        buttonInsideImage.setImage(self.removeImage, for: .normal)
+        buttonInsideImage.addTarget(self, action: #selector(buttonInsideImageTouched), for: .touchUpInside)
+        
         newImageView.frame = CGRect(x: self.imageViewXAxis, y: imageViewYAxis, width: imageViewWidth, height: imageViewHeight)
-        //self.imageContainerView.addSubview(newImageView)
         
         if self.counterOfImagesUploaded > 5 {
           print("Here ")
           let newScrollViewSize = self.scrollView.frame.size.width + imageViewWidth + 10
-            print("newScrollViewSize: ", newScrollViewSize)
-          // self.scrollView.frame.size.width = 2000
-          // self.scrollView.frame.size = CGSize(width: 2000, height: self.scrollView.frame.size.height)
           updateScrollViewSize()
         }
 
+        // Add new components to the box
         self.scrollView.addSubview(newImageView)
+        newImageView.addSubview(buttonInsideImage)
         
         self.imageViewXAxis += imageViewWidth + 5.0
         self.counterOfImagesUploaded += 1
         
         print("counterOfImagesUploaded: ", self.counterOfImagesUploaded)
+    }
+    
+    func buttonInsideImageTouched(sender: UIButton!) {
+        print("Button was touched", sender)
     }
     
     func updateScrollViewSize() {
@@ -166,10 +187,8 @@ class AddViewController: UIViewController, UINavigationControllerDelegate,
             contentRect = contentRect.union(currentView.frame)
         }
         
-        print("THE SIZE SHOULD BE HERE")
         contentRect.size.height = self.imageContainerHeight
         contentRect.size.width = contentRect.size.width + (self.scrollView.subviews[0].frame.size.width / 6.5)
-        print(self.scrollView.subviews[0].frame.size.width)
         
         self.scrollView.contentSize = contentRect.size;
     }
