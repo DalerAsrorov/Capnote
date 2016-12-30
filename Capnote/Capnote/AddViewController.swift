@@ -31,6 +31,8 @@ class AddViewController: UIViewController, UINavigationControllerDelegate,
     var counterOfImagesUploaded = 1
     var buttonInsideImageHeight: CGFloat = 0.0
     var buttonInsideImageWidth: CGFloat = 0.0
+    var xPositionOfLastRemoved: CGFloat = 0.0
+    var trackImageViewWidth: CGFloat = 0.0
     
     // Static variables 
     private var imagesArray = [UIImage]()
@@ -149,7 +151,7 @@ class AddViewController: UIViewController, UINavigationControllerDelegate,
         let imageViewHeight = self.imageContainerHeight / 1.2
         let imageViewYAxis = self.imageContainerHeight / 11.5
         
-        
+        self.trackImageViewWidth = imageViewWidth
         
         // code for button inside of an image
         let buttonInsideImage = UIButton(type: .custom) as UIButton
@@ -157,7 +159,6 @@ class AddViewController: UIViewController, UINavigationControllerDelegate,
         
         buttonInsideImage.frame = CGRect(x: 15, y: 10, width: 20, height: 20)
         buttonInsideImage.setImage(self.removeImage, for: .normal)
-//        buttonInsideImage.addTarget(self, action: #selector(buttonInsideImageTouched), for: .touchUpInside)
         
         // Event hanlder for each uiimage
         let tapGestureRecognizer = UITapGestureRecognizer(target:self, action:#selector(imageTapped(imgView:)))
@@ -168,7 +169,6 @@ class AddViewController: UIViewController, UINavigationControllerDelegate,
         newImageView.frame = CGRect(x: self.imageViewXAxis, y: imageViewYAxis, width: imageViewWidth, height: imageViewHeight)
         
         if self.counterOfImagesUploaded > 5 {
-          print("Here ")
           let newScrollViewSize = self.scrollView.frame.size.width + imageViewWidth + 10
           updateScrollViewSize()
         }
@@ -178,6 +178,7 @@ class AddViewController: UIViewController, UINavigationControllerDelegate,
         newImageView.addSubview(buttonInsideImage)
         
         self.imageViewXAxis += imageViewWidth + 5.0
+        self.xPositionOfLastRemoved = self.imageViewXAxis
         self.counterOfImagesUploaded += 1
         
         print("counterOfImagesUploaded: ", self.counterOfImagesUploaded)
@@ -190,8 +191,7 @@ class AddViewController: UIViewController, UINavigationControllerDelegate,
         // remove the tapped image from the view
         imgView.view!.removeFromSuperview()
         
-        // 
-        self.imageViewXAxis = self.initialXAxisPos
+        self.imageViewXAxis = self.xPositionOfLastRemoved - self.trackImageViewWidth - 5.0
     }
     
     func buttonInsideImageTouched(sender: UIButton!) {
