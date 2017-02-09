@@ -34,6 +34,7 @@ class AddViewController: UIViewController, UINavigationControllerDelegate,
     let removeImage = UIImage(named: "remove-x")
     let initialXAxisPos: CGFloat = 5.0
     let xButtonSize = 3
+    let imageService = ImageService()
     
     // Variables
     var imagePicker: UIImagePickerController!
@@ -151,6 +152,13 @@ class AddViewController: UIViewController, UINavigationControllerDelegate,
         self.scrollView.layer.borderColor = self.uiService.baseColorCG
     }
     
+    func storeImagesInDatabase(listOfImages: Array<Any>) {
+        for image in listOfImages {
+            self.imageService.storeImage(image: image as! UIImage, completion: { (url) in
+               print("GENERATED URL: ", url ?? "NO URLS")
+            })
+        }
+    }
     
     func imageIsChosen() -> Bool {
         self.imageContainerLabel.text = ""
@@ -196,7 +204,6 @@ class AddViewController: UIViewController, UINavigationControllerDelegate,
         
     }
     
-
     func imageTapped(imgView: AnyObject) {
         print("\nPrinting array", self.imagesArray);
         print("\n\nStart counting: \n")
@@ -219,6 +226,7 @@ class AddViewController: UIViewController, UINavigationControllerDelegate,
             print("\n\n***Image has been successfully removed.***")
             print("\nself.imagesArray : ", self.imagesArray)
             print("\niImage removed: ", selectedImage)
+            storeImagesInDatabase(listOfImages: self.imagesArray)
         }
         
         self.imageViewXAxis = self.xPositionOfLastRemoved - self.trackImageViewWidth - 5.0
