@@ -8,6 +8,17 @@
 
 import UIKit
 
+extension UIImage {
+    convenience init(view: UIView) {
+        UIGraphicsBeginImageContext(view.frame.size)
+        view.layer.render(in: UIGraphicsGetCurrentContext()!)
+        let image = UIGraphicsGetImageFromCurrentImageContext()
+        UIGraphicsEndImageContext()
+        self.init(cgImage: (image?.cgImage)!)
+    }
+}
+
+
 class AddViewController: UIViewController, UINavigationControllerDelegate,
     UIImagePickerControllerDelegate
 {
@@ -22,6 +33,7 @@ class AddViewController: UIViewController, UINavigationControllerDelegate,
     let scrollViewHeight = CGFloat(25)
     let removeImage = UIImage(named: "remove-x")
     let initialXAxisPos: CGFloat = 5.0
+    let xButtonSize = 3
     
     // Variables
     var imagePicker: UIImagePickerController!
@@ -33,6 +45,8 @@ class AddViewController: UIViewController, UINavigationControllerDelegate,
     var buttonInsideImageWidth: CGFloat = 0.0
     var xPositionOfLastRemoved: CGFloat = 0.0
     var trackImageViewWidth: CGFloat = 0.0
+    var imagesHolder = [UIImage]()
+
     
     // Static variables 
     private var imagesArray = [UIImage]()
@@ -96,10 +110,10 @@ class AddViewController: UIViewController, UINavigationControllerDelegate,
         addChosenImageToImageContainer(image: chosenImage)
         
         self.imagesArray.append(chosenImage)
-        print(self.imagesArray)
+        // print(self.imagesArray)
         
-        print("image successfully received")
-        print(chosenImage)
+        // print("image successfully received")
+        // print(chosenImage)
         
         //imageView.image = info[UIImagePickerControllerOriginalImage] as? UIImage
     }
@@ -144,8 +158,9 @@ class AddViewController: UIViewController, UINavigationControllerDelegate,
     }
     
     func addChosenImageToImageContainer(image: UIImage) {
-        
+//        let generatedImage = "Image" + self.nameC
         // code for image
+        
         let newImageView = UIImageView(image: image)
         let imageViewWidth = self.imageContainerWidth / 6.68
         let imageViewHeight = self.imageContainerHeight / 1.2
@@ -155,7 +170,6 @@ class AddViewController: UIViewController, UINavigationControllerDelegate,
         
         // code for button inside of an image
         let buttonInsideImage = UIButton(type: .custom) as UIButton
-        
         
         buttonInsideImage.frame = CGRect(x: 15, y: 10, width: 20, height: 20)
         buttonInsideImage.setImage(self.removeImage, for: .normal)
@@ -169,7 +183,6 @@ class AddViewController: UIViewController, UINavigationControllerDelegate,
         newImageView.frame = CGRect(x: self.imageViewXAxis, y: imageViewYAxis, width: imageViewWidth, height: imageViewHeight)
         
         if self.counterOfImagesUploaded > 5 {
-          let newScrollViewSize = self.scrollView.frame.size.width + imageViewWidth + 10
           updateScrollViewSize()
         }
 
@@ -181,21 +194,55 @@ class AddViewController: UIViewController, UINavigationControllerDelegate,
         self.xPositionOfLastRemoved = self.imageViewXAxis
         self.counterOfImagesUploaded += 1
         
-        print("counterOfImagesUploaded: ", self.counterOfImagesUploaded)
     }
     
+
     func imageTapped(imgView: AnyObject) {
-        print(":::Image tapped::: \n **Trying to remove image view.**")
-        print(imgView.view!)
+        print("\nPrinting array", self.imagesArray);
+        print("\n\nStart counting: \n")
+    
+        print("Check print: ", imgView.view!)
+        let imgview = imgView.view!
+        let tryImage = UIImage(view: imgview)
+        let uiImageView = imgview as! UIImageView
+        let selectedImage = uiImageView.image!
+        print("IMAGE VIEW THE VIEW", uiImageView.image)
         
+        let imageViewToRemove = imgView.view!
         // remove the tapped image from the view
         imgView.view!.removeFromSuperview()
+        
+        // Removing it from the array to store
+        var isRemoved = removeSelectedImageFromArray(theImage: selectedImage)
+        
+        if(isRemoved) {
+            print("\n\n***Image has been successfully removed.***")
+            print("\nself.imagesArray : ", self.imagesArray)
+            print("\niImage removed: ", selectedImage)
+        }
         
         self.imageViewXAxis = self.xPositionOfLastRemoved - self.trackImageViewWidth - 5.0
     }
     
+    func removeSelectedImageFromArray(theImage: UIImage) -> Bool{
+        var removed = false
+        let imageToRemove = theImage
+        var imagesFromView = [UIImage]()
+        var indexCount = 0
+        
+        for case let imagesFromArray as UIImage in self.imagesArray {
+            if (imageToRemove == imagesFromArray) {
+                self.imagesArray.remove(at: indexCount)
+                removed = true
+            }
+            indexCount += 1
+        }
+        
+        return removed
+    }
+    
     func buttonInsideImageTouched(sender: UIButton!) {
-        print("Button was touched", sender)
+        // print("Button was touched", sender)
     }
     
     func updateScrollViewSize() {
