@@ -18,7 +18,6 @@ extension UIImage {
     }
 }
 
-
 class AddViewController: UIViewController, UINavigationControllerDelegate,
     UIImagePickerControllerDelegate
 {
@@ -48,6 +47,8 @@ class AddViewController: UIViewController, UINavigationControllerDelegate,
     var trackImageViewWidth: CGFloat = 0.0
     var imagesHolder = [UIImage]()
 
+    // Models 
+    let notesModel_ = NotesModel()
     
     // Static variables 
     private var imagesArray = [UIImage]()
@@ -153,11 +154,17 @@ class AddViewController: UIViewController, UINavigationControllerDelegate,
     }
     
     func storeImagesInDatabase(listOfImages: Array<Any>) {
-        for image in listOfImages {
-            self.imageService.storeImage(image: image as! UIImage, completion: { (url) in
-               print("GENERATED URL: ", url ?? "NO URLS")
-            })
+        self.notesModel_.addNote(username: "jerk", title: "Some title", desc: "This is cool and stuff", channel: "csc321") { (noteID: String) in
+            for image in listOfImages {
+                self.imageService.storeImage(image: image as! UIImage, completion: { (url) in
+                    let stringUrl = url?.absoluteString
+                    print("\n\n String URL:::", stringUrl)
+                    print("\n\n URL OBJECT:::", url)
+                    self.notesModel_.addFileToDatabaseForUser(noteID: noteID, url: stringUrl!)
+                })
+            }
         }
+        print("WILL PRINT NOW")
     }
     
     func imageIsChosen() -> Bool {
