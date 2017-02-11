@@ -47,8 +47,9 @@ class AddViewController: UIViewController, UINavigationControllerDelegate,
     var trackImageViewWidth: CGFloat = 0.0
     var imagesHolder = [UIImage]()
 
-    // Models 
+    // Models & Services
     let notesModel_ = NotesModel()
+    let userServices_ = UserServices()
     
     // Static variables 
     private var imagesArray = [UIImage]()
@@ -65,7 +66,9 @@ class AddViewController: UIViewController, UINavigationControllerDelegate,
         // Adjust buttons inside of image constants 
         self.buttonInsideImageWidth = self.imageContainerWidth / 2
         self.buttonInsideImageHeight = self.imageContainerHeight / 2
-        
+     
+        self.testLocalSotrageMethodsSet()
+        print("\n\n***DICT HAPPENED:::", testLocalSotrageMethodsGet())
     }
     
     override func viewDidLayoutSubviews() {
@@ -78,6 +81,14 @@ class AddViewController: UIViewController, UINavigationControllerDelegate,
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
+    }
+    
+    func testLocalSotrageMethodsSet() {
+        self.userServices_.storeUserInfoToLocalStorage(username: "daler", fullName: "Daler Asrorov", email: "asrorids@gmail.com", profileImageSrc: "daler.png", infoMajor: "CS", infoSchool: "USC", numOfSubs: 3)
+    }
+    
+    func testLocalSotrageMethodsGet() -> Dictionary<String, Any> {
+        return self.userServices_.gerUserDataDict() as! Dictionary<String, Any>
     }
     
     /*

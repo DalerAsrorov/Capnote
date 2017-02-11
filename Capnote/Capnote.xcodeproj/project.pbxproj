@@ -14,6 +14,9 @@
 		3C02BF9E1E0A914A005F3ADF /* AddViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3C02BF9C1E0A914A005F3ADF /* AddViewController.swift */; };
 		3C02BF9F1E0A914A005F3ADF /* AddViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3C02BF9C1E0A914A005F3ADF /* AddViewController.swift */; };
 		3C73DE171E0A6B4E00B3B748 /* CustomTabBarController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3C73DE161E0A6B4E00B3B748 /* CustomTabBarController.swift */; };
+		3CB1E55B1E4EFED60050945B /* UserServices.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3CB1E55A1E4EFED60050945B /* UserServices.swift */; };
+		3CB1E55C1E4EFED60050945B /* UserServices.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3CB1E55A1E4EFED60050945B /* UserServices.swift */; };
+		3CB1E55D1E4EFED60050945B /* UserServices.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3CB1E55A1E4EFED60050945B /* UserServices.swift */; };
 		3CFBE5151E03A37500F8D48B /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3CFBE5141E03A37500F8D48B /* AppDelegate.swift */; };
 		3CFBE51A1E03A37500F8D48B /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 3CFBE5181E03A37500F8D48B /* Main.storyboard */; };
 		3CFBE51D1E03A37500F8D48B /* Capnote.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 3CFBE51B1E03A37500F8D48B /* Capnote.xcdatamodeld */; };
@@ -72,6 +75,7 @@
 		3C02BF981E0A90D2005F3ADF /* ProfileViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ProfileViewController.swift; sourceTree = "<group>"; };
 		3C02BF9C1E0A914A005F3ADF /* AddViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AddViewController.swift; sourceTree = "<group>"; };
 		3C73DE161E0A6B4E00B3B748 /* CustomTabBarController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CustomTabBarController.swift; sourceTree = "<group>"; };
+		3CB1E55A1E4EFED60050945B /* UserServices.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UserServices.swift; sourceTree = "<group>"; };
 		3CFBE5111E03A37500F8D48B /* Capnote.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Capnote.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		3CFBE5141E03A37500F8D48B /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		3CFBE5191E03A37500F8D48B /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
@@ -213,6 +217,7 @@
 			children = (
 				3CFBE55E1E05326C00F8D48B /* ImageService.swift */,
 				3CFBE56A1E08FF4500F8D48B /* UIServices.swift */,
+				3CB1E55A1E4EFED60050945B /* UserServices.swift */,
 			);
 			name = Services;
 			sourceTree = "<group>";
@@ -539,6 +544,7 @@
 				3CFBE5671E08EF4A00F8D48B /* FeedTableViewController.swift in Sources */,
 				3C73DE171E0A6B4E00B3B748 /* CustomTabBarController.swift in Sources */,
 				3C02BF991E0A90D2005F3ADF /* ProfileViewController.swift in Sources */,
+				3CB1E55B1E4EFED60050945B /* UserServices.swift in Sources */,
 				3CFBE51D1E03A37500F8D48B /* Capnote.xcdatamodeld in Sources */,
 				3CFBE56B1E08FF4500F8D48B /* UIServices.swift in Sources */,
 				3CFBE5151E03A37500F8D48B /* AppDelegate.swift in Sources */,
@@ -551,6 +557,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				3C02BF9E1E0A914A005F3ADF /* AddViewController.swift in Sources */,
+				3CB1E55C1E4EFED60050945B /* UserServices.swift in Sources */,
 				3CFBE5641E055C8100F8D48B /* UserModel.swift in Sources */,
 				3C02BF9A1E0A90D2005F3ADF /* ProfileViewController.swift in Sources */,
 				3CFBE56C1E08FF4500F8D48B /* UIServices.swift in Sources */,
@@ -568,6 +575,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				3C02BF9F1E0A914A005F3ADF /* AddViewController.swift in Sources */,
+				3CB1E55D1E4EFED60050945B /* UserServices.swift in Sources */,
 				3CFBE5651E055C8100F8D48B /* UserModel.swift in Sources */,
 				3C02BF9B1E0A90D2005F3ADF /* ProfileViewController.swift in Sources */,
 				3CFBE56D1E08FF4500F8D48B /* UIServices.swift in Sources */,
