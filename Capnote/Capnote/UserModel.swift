@@ -25,16 +25,25 @@ class UserModel: NSObject {
             "info": ["major": major, "school": school],
             "stats": ["numOfSubs": numberOfSubs],
             "img": imageURL
-        ])
+            ])
     }
     
-    func setToLocalStorage(completion: @escaping (_ noteKey: [String:Any]) -> Void) {
-        let userID = refAuth?.currentUser?.uid
-        ref.child("users").child(userID!).observeSingleEvent(of: .value, with: { (snapshot) in
+    func setToLocalStorage(completion: @escaping (_ noteKey: [String:Any], _ usernameID: String) -> Void) {
+        let loginEmail = refAuth?.currentUser?.email
+        ref.child("users").observeSingleEvent(of: .value, with: { (snapshot) in
             if snapshot.exists() {
-                if let dict = snapshot.value as? [String: Any] {
-                    self.userServices.storeUserInfoToLocalStorage(userDict: dict)
-                    completion(dict)
+                if let dictOfUsers = snapshot.value as? [String: Any] {
+                    for (keyUsernameItem, valueObjectItem) in dictOfUsers {
+                        let userInfoDictOptional = valueObjectItem as? Dictionary<String, Any>
+                        let userInfoDict = userInfoDictOptional!
+                        let dbEmail = userInfoDict["email"] as! String
+                        let keyUsernameStr = keyUsernameItem as! String
+                        
+                        if(dbEmail == loginEmail) {
+                            self.userServices.storeUserInfoToLocalStorage(userDict: userInfoDict, username: keyUsernameStr)
+                            completion(userInfoDict, keyUsernameStr)
+                        }
+                    }
                 }
             }
         })

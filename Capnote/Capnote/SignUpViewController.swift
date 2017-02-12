@@ -38,17 +38,17 @@ class SignUpViewController: UIViewController, UITextFieldDelegate, UIImagePicker
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        // set up delegates for UITextField variables 
+        // set up delegates for UITextField variables
         setUpDelegates()
         setUpLastThingsForView()
-
+        
         let tapGestureRecognizer = UITapGestureRecognizer(target:self, action:#selector(imageTapped(img:)))
         newProfileImageUV.isUserInteractionEnabled = true
         newProfileImageUV.addGestureRecognizer(tapGestureRecognizer)
         
         // Do any additional setup after loading the view.
     }
-
+    
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
@@ -76,7 +76,7 @@ class SignUpViewController: UIViewController, UITextFieldDelegate, UIImagePicker
                         self.userModel.addUser(username: inputUsername, email: inputEmail, school: inputSchool, major: inputMajor, imageURL: inputImageURL!, numberOfSubs: self.numberOfSubs)
                         print(inputUsername + " signed up successfully!")
                         
-                        // User signed up successfully 
+                        // User signed up successfully
                         // Direct him to the main page "Feed"
                         self.performSegue(withIdentifier: self.segueIdentifier, sender: self)
                     })
@@ -91,15 +91,15 @@ class SignUpViewController: UIViewController, UITextFieldDelegate, UIImagePicker
                 }
             })
             
-  
+            
         }
         
     }
     
     /*
-    *   Action handler after the user taps on the UIImageView.
-    *   It should generate UIImagePickerView
-    */
+     *   Action handler after the user taps on the UIImageView.
+     *   It should generate UIImagePickerView
+     */
     func imageTapped(img: AnyObject)
     {
         imagePicker.allowsEditing = false
@@ -167,19 +167,19 @@ class SignUpViewController: UIViewController, UITextFieldDelegate, UIImagePicker
         NotificationCenter.default.removeObserver(self, name: NSNotification.Name.UIKeyboardWillHide, object: nil)
     }
     
-
     
-
     
-
+    
+    
+    
     /*
-    // MARK: - Navigation
-
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        // Get the new view controller using segue.destinationViewController.
-        // Pass the selected object to the new view controller.
-    }
-    */
-
+     // MARK: - Navigation
+     
+     // In a storyboard-based application, you will often want to do a little preparation before navigation
+     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+     // Get the new view controller using segue.destinationViewController.
+     // Pass the selected object to the new view controller.
+     }
+     */
+    
 }

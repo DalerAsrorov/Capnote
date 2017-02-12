@@ -16,7 +16,7 @@ class UserServices: NSObject {
     var infoSchool: String
     var numOfSubs: Int
     
-    // defaults for local storage 
+    // defaults for local storage
     let defaults = UserDefaults.standard
     
     // data structure for keys
@@ -24,14 +24,16 @@ class UserServices: NSObject {
         case username = "username"
         case fullName = "fullName"
         case email = "email"
-        case profileImgSrc = "profileImgSrc"
-        case infoMajor = "infoMajor"
-        case infoSchool = "infoSchool"
+        case profileImgSrc = "img"
+        case infoMajor = "major"
+        case infoSchool = "school"
         case numOfSubs = "numOfSubs"
+        case info = "info"
+        case stats = "stats"
     }
     
     override init() {
-       self.username = ""
+        self.username = ""
         self.email = ""
         self.profileImageSrc = ""
         self.infoMajor = ""
@@ -50,14 +52,20 @@ class UserServices: NSObject {
         self.defaults.setValue(numOfSubs, forKey: StorageKeys.numOfSubs.rawValue)
     }
     
-    func storeUserInfoToLocalStorage(userDict: [String: Any]) {
-        self.defaults.setValue(userDict[StorageKeys.username.rawValue], forKey: StorageKeys.username.rawValue)
-        self.defaults.setValue(userDict[StorageKeys.fullName.rawValue], forKey: StorageKeys.fullName.rawValue)
-        self.defaults.setValue(userDict[StorageKeys.email.rawValue], forKey: StorageKeys.email.rawValue)
-        self.defaults.setValue(userDict[StorageKeys.profileImgSrc.rawValue], forKey: StorageKeys.profileImgSrc.rawValue)
-        self.defaults.setValue(userDict[StorageKeys.infoMajor.rawValue], forKey: StorageKeys.infoMajor.rawValue)
-        self.defaults.setValue(userDict[StorageKeys.infoSchool.rawValue], forKey: StorageKeys.infoSchool.rawValue)
-        self.defaults.setValue(userDict[StorageKeys.numOfSubs.rawValue], forKey: StorageKeys.numOfSubs.rawValue)
+    func storeUserInfoToLocalStorage(userDict: [String: Any], username: String) {
+        print("")
+        let dictionary = userDict as! Dictionary<String, AnyObject>
+        self.defaults.setValue(username, forKey: StorageKeys.username.rawValue)
+        //        print(defaults.string(forKey: StorageKeys.username.rawValue), " : ", StorageKeys.username.rawValue)
+        //        self.defaults.setValue(dictionary[StorageKeys.info.rawValue]?["fullName"], forKey: StorageKeys.fullName.rawValue)
+        //        print(defaults.string(forKey: StorageKeys.fullName.rawValue), " : ", StorageKeys.fullName.rawValue)
+        self.defaults.setValue(dictionary[StorageKeys.email.rawValue], forKey: StorageKeys.email.rawValue)
+        self.defaults.setValue(dictionary[StorageKeys.profileImgSrc.rawValue], forKey: StorageKeys.profileImgSrc.rawValue)
+        
+        self.defaults.setValue(dictionary[StorageKeys.info.rawValue]?[StorageKeys.infoMajor.rawValue], forKey: StorageKeys.infoMajor.rawValue)
+        //        print(defaults.string(forKey: StorageKeys.infoMajor.rawValue), " : ", StorageKeys.infoMajor.rawValue)
+        self.defaults.setValue(dictionary[StorageKeys.info.rawValue]?[StorageKeys.infoSchool.rawValue], forKey: StorageKeys.infoSchool.rawValue)
+        self.defaults.setValue(dictionary[StorageKeys.stats.rawValue]?[StorageKeys.numOfSubs.rawValue], forKey: StorageKeys.numOfSubs.rawValue)
         
     }
     

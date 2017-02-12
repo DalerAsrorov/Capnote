@@ -67,7 +67,6 @@ class AddViewController: UIViewController, UINavigationControllerDelegate,
         self.buttonInsideImageWidth = self.imageContainerWidth / 2
         self.buttonInsideImageHeight = self.imageContainerHeight / 2
      
-        self.testLocalSotrageMethodsSet()
         print("\n\n***DICT HAPPENED:::", testLocalSotrageMethodsGet())
     }
     
