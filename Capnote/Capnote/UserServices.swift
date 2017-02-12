@@ -50,7 +50,18 @@ class UserServices: NSObject {
         self.defaults.setValue(numOfSubs, forKey: StorageKeys.numOfSubs.rawValue)
     }
     
-    func gerUserDataDict() -> Any {
+    func storeUserInfoToLocalStorage(userDict: [String: Any]) {
+        self.defaults.setValue(userDict[StorageKeys.username.rawValue], forKey: StorageKeys.username.rawValue)
+        self.defaults.setValue(userDict[StorageKeys.fullName.rawValue], forKey: StorageKeys.fullName.rawValue)
+        self.defaults.setValue(userDict[StorageKeys.email.rawValue], forKey: StorageKeys.email.rawValue)
+        self.defaults.setValue(userDict[StorageKeys.profileImgSrc.rawValue], forKey: StorageKeys.profileImgSrc.rawValue)
+        self.defaults.setValue(userDict[StorageKeys.infoMajor.rawValue], forKey: StorageKeys.infoMajor.rawValue)
+        self.defaults.setValue(userDict[StorageKeys.infoSchool.rawValue], forKey: StorageKeys.infoSchool.rawValue)
+        self.defaults.setValue(userDict[StorageKeys.numOfSubs.rawValue], forKey: StorageKeys.numOfSubs.rawValue)
+        
+    }
+    
+    func gerUserDataDictFromStorage() -> Any {
         return [
             StorageKeys.username.rawValue: defaults.string(forKey: StorageKeys.username.rawValue),
             StorageKeys.fullName.rawValue: defaults.string(forKey: StorageKeys.fullName.rawValue),

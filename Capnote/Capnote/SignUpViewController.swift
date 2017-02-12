@@ -34,6 +34,7 @@ class SignUpViewController: UIViewController, UITextFieldDelegate, UIImagePicker
     // models
     let userModel = UserModel()
     
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         

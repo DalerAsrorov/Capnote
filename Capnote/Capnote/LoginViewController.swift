@@ -17,6 +17,7 @@ class LoginViewController: UIViewController, UITextFieldDelegate {
     
     private let segueIdentifier: String = "loginSegue"
     
+
     override func viewDidLoad() {
         super.viewDidLoad()
         
@@ -43,18 +44,24 @@ class LoginViewController: UIViewController, UITextFieldDelegate {
             let inputEmail = self.usernameTF.text!
             let inputPassword = self.passTF.text!
             
-            
             FIRAuth.auth()?.signIn(withEmail: inputEmail, password: inputPassword, completion: { (user, error) in
                 if error == nil {
+                    // models & services
+                    let userServices = UserServices()
+                    let userModel = UserModel()
                     
                     print(user?.displayName ?? "dfsfds")
                     print(user?.email ?? "dffds")
                     print("Logged in successfully. ")
                     
-                    // The user logged in successfully
-                    // 1. Direct him to the Feeds page with latest updates
+//                    userServices.gerUserDataDict()
+                    
+                    userModel.setToLocalStorage(completion: { (dict) in
+                        userServices.storeUserInfoToLocalStorage(userDict: dict)
+                    })
                     
                     self.performSegue(withIdentifier: self.segueIdentifier, sender: self)
+                    
                 }
                 else {
                     //Tells the user that there is an error and then gets firebase to tell them the error

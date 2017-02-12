@@ -88,7 +88,7 @@ class AddViewController: UIViewController, UINavigationControllerDelegate,
     }
     
     func testLocalSotrageMethodsGet() -> Dictionary<String, Any> {
-        return self.userServices_.gerUserDataDict() as! Dictionary<String, Any>
+        return self.userServices_.gerUserDataDictFromStorage() as! Dictionary<String, Any>
     }
     
     /*

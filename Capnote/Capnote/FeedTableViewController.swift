@@ -10,13 +10,18 @@ import UIKit
 
 class FeedTableViewController: UITableViewController {
 
+    // services
     private let uiService = UIServices()
+    private let userServices = UserServices()
     
     override func viewDidLoad() {
         super.viewDidLoad()
-
-        uiService.hideNavigationBar(controller: self)
         
+        print("\nSHOWING LOCAL STORAGE!\n")
+        print(userServices.gerUserDataDictFromStorage())
+        
+
+        print("IT'S HERE", self.userServices.gerUserDataDictFromStorage())
         // Uncomment the following line to preserve selection between presentations
         // self.clearsSelectionOnViewWillAppear = false
 
