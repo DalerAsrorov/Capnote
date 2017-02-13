@@ -26,6 +26,7 @@ class AddViewController: UIViewController, UINavigationControllerDelegate,
     @IBOutlet weak var uploadPhotoBtn: UIButton!
     @IBOutlet weak var imageContainerLabel: UILabel!
     @IBOutlet weak var scrollView: UIScrollView!
+    @IBOutlet weak var titleTF: UITextField!
     
     // Constants
     let uiService = UIServices()

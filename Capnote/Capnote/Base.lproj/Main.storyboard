@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="11762" systemVersion="16C67" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES" initialViewController="dk1-18-VQR">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="11762" systemVersion="16D32" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES" initialViewController="dk1-18-VQR">
     <device id="retina4_7" orientation="portrait">
         <adaptation id="fullscreen"/>
     </device>
@@ -357,15 +357,24 @@
                                     <constraint firstItem="oql-ey-wP8" firstAttribute="centerX" secondItem="nhD-ss-UcJ" secondAttribute="centerX" id="wg0-gn-3pu"/>
                                 </constraints>
                             </scrollView>
+                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Title" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="vid-d0-NVz">
+                                <rect key="frame" x="16" y="300" width="343" height="30"/>
+                                <nil key="textColor"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                <textInputTraits key="textInputTraits"/>
+                            </textField>
                         </subviews>
                         <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <constraints>
                             <constraint firstItem="nhD-ss-UcJ" firstAttribute="top" secondItem="GF1-Ln-eiQ" secondAttribute="bottom" constant="8" symbolic="YES" id="9QO-e2-v9p"/>
                             <constraint firstItem="nhD-ss-UcJ" firstAttribute="leading" secondItem="GF1-Ln-eiQ" secondAttribute="leading" id="HKc-JP-WhJ"/>
                             <constraint firstAttribute="bottom" secondItem="GF1-Ln-eiQ" secondAttribute="bottom" constant="426" id="Llb-iz-Q7l"/>
+                            <constraint firstItem="vid-d0-NVz" firstAttribute="leading" secondItem="nhD-ss-UcJ" secondAttribute="leading" id="NEp-qG-IJy"/>
+                            <constraint firstItem="vid-d0-NVz" firstAttribute="trailing" secondItem="nhD-ss-UcJ" secondAttribute="trailing" id="W19-R6-6dR"/>
                             <constraint firstItem="GF1-Ln-eiQ" firstAttribute="top" secondItem="vCf-XC-4PY" secondAttribute="bottom" constant="8" id="WJ6-dv-b3h"/>
                             <constraint firstItem="1r0-HM-bHp" firstAttribute="top" secondItem="nhD-ss-UcJ" secondAttribute="bottom" constant="326" id="YMC-v8-slV"/>
                             <constraint firstItem="GF1-Ln-eiQ" firstAttribute="leading" secondItem="Mmo-k1-Wpc" secondAttribute="leadingMargin" id="aAo-iC-qtY"/>
+                            <constraint firstItem="vid-d0-NVz" firstAttribute="top" secondItem="nhD-ss-UcJ" secondAttribute="bottom" constant="8" id="bhI-Zf-IMY"/>
                             <constraint firstItem="nhD-ss-UcJ" firstAttribute="trailing" secondItem="GF1-Ln-eiQ" secondAttribute="trailing" id="cCm-Bc-IHg"/>
                             <constraint firstItem="GF1-Ln-eiQ" firstAttribute="trailing" secondItem="Mmo-k1-Wpc" secondAttribute="trailingMargin" id="qd3-SQ-LUE"/>
                         </constraints>
@@ -377,6 +386,7 @@
                         <outlet property="imageContainerLabel" destination="oql-ey-wP8" id="j5b-XS-g4o"/>
                         <outlet property="scrollView" destination="nhD-ss-UcJ" id="jZr-cb-VcK"/>
                         <outlet property="takePhotoBtn" destination="FIf-BU-Mpj" id="NRq-e4-NSg"/>
+                        <outlet property="titleTF" destination="vid-d0-NVz" id="9vn-f9-7o4"/>
                         <outlet property="uploadPhotoBtn" destination="l1C-ZP-2G4" id="7O2-OS-c3N"/>
                     </connections>
                 </viewController>
