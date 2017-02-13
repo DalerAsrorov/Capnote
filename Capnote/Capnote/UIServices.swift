@@ -41,8 +41,14 @@ class UIServices: NSObject {
         textView.layer.borderWidth = CGFloat(self.DEFAULT_BORDER_WIDTH)
     }
 
-    func setTextViewStyle(textView: UITextView, label: UILabel) -> Void {
-        var localLabel = label
+    func setTextViewStyle(textView: UITextView, placeholderLabel: UILabel) -> Void {
+        placeholderLabel.text = "Write description..."
+        placeholderLabel.font = UIFont.italicSystemFont(ofSize: (textView.font?.pointSize)!)
+        placeholderLabel.sizeToFit()
+        textView.addSubview(placeholderLabel)
+        placeholderLabel.frame.origin = CGPoint(x: 5, y: (textView.font?.pointSize)! / 2)
+        placeholderLabel.textColor = UIColor.lightGray
+        placeholderLabel.isHidden = !textView.text.isEmpty
 
     }
 }

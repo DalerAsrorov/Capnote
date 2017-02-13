@@ -47,8 +47,10 @@ class AddViewController: UIViewController, UINavigationControllerDelegate,
     var buttonInsideImageWidth: CGFloat = 0.0
     var xPositionOfLastRemoved: CGFloat = 0.0
     var trackImageViewWidth: CGFloat = 0.0
+    
+    // Programmatic UI components
     var imagesHolder = [UIImage]()
-    var placeholderLabel: UILabel!
+    var placeholderLabel = UILabel()
 
     // Models & Services
     let notesModel_ = NotesModel()
@@ -77,15 +79,8 @@ class AddViewController: UIViewController, UINavigationControllerDelegate,
         
         // Adding place holder to the TextView (description) 
         self.descriptionTV.delegate = self
-        self.placeholderLabel = UILabel()
-        self.placeholderLabel.text = "Write description..."
-        self.placeholderLabel.font = UIFont.italicSystemFont(ofSize: (self.descriptionTV.font?.pointSize)!)
-        self.placeholderLabel.sizeToFit()
-        self.descriptionTV.addSubview(self.placeholderLabel)
-        self.placeholderLabel.frame.origin = CGPoint(x: 5, y: (self.descriptionTV.font?.pointSize)! / 2)
-        self.placeholderLabel.textColor = UIColor.lightGray
-        self.placeholderLabel.isHidden = !self.descriptionTV.text.isEmpty
-//        self.uiServices_.setTextViewStyle(textView: self.descriptionTV, label: self.placeholderLabel)
+
+        self.uiServices_.setTextViewStyle(textView: self.descriptionTV, placeholderLabel: self.placeholderLabel)
         
         print("\n\n***DICT HAPPENED:::", testLocalSotrageMethodsGet())
     }
