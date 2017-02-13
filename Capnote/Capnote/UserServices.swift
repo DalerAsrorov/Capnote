@@ -53,7 +53,6 @@ class UserServices: NSObject {
     }
     
     func storeUserInfoToLocalStorage(userDict: [String: Any], username: String) {
-        print("")
         let dictionary = userDict as! Dictionary<String, AnyObject>
         self.defaults.setValue(username, forKey: StorageKeys.username.rawValue)
         //        print(defaults.string(forKey: StorageKeys.username.rawValue), " : ", StorageKeys.username.rawValue)

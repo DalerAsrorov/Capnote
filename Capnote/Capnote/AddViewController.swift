@@ -79,7 +79,6 @@ class AddViewController: UIViewController, UINavigationControllerDelegate,
         
         // Adding place holder to the TextView (description) 
         self.descriptionTV.delegate = self
-
         self.uiServices_.setTextViewStyle(textView: self.descriptionTV, placeholderLabel: self.placeholderLabel)
         
         print("\n\n***DICT HAPPENED:::", testLocalSotrageMethodsGet())

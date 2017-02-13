@@ -19,6 +19,9 @@ class UIServices: NSObject {
     private let DEFAULT_BORDER_COLOR = UIColor(red:0.90, green:0.32, blue:0.22, alpha:1.0)
     private let DEFAULT_BORDER_WIDTH = 1
     
+    // Default colors 
+    private let placeHolderColor = UIColor(red:0.86, green:0.85, blue:0.85, alpha:1.0)
+    
     override init() {
         baseColorCG = self.baseColor.cgColor
     }
@@ -42,12 +45,12 @@ class UIServices: NSObject {
     }
 
     func setTextViewStyle(textView: UITextView, placeholderLabel: UILabel) -> Void {
-        placeholderLabel.text = "Write description..."
-        placeholderLabel.font = UIFont.italicSystemFont(ofSize: (textView.font?.pointSize)!)
+        placeholderLabel.text = "Write description"
+        placeholderLabel.font = UIFont.systemFont(ofSize: (textView.font?.pointSize)!)
         placeholderLabel.sizeToFit()
         textView.addSubview(placeholderLabel)
         placeholderLabel.frame.origin = CGPoint(x: 5, y: (textView.font?.pointSize)! / 2)
-        placeholderLabel.textColor = UIColor.lightGray
+        placeholderLabel.textColor = placeHolderColor
         placeholderLabel.isHidden = !textView.text.isEmpty
 
     }
