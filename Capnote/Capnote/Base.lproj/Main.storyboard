@@ -363,10 +363,19 @@
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                 <textInputTraits key="textInputTraits"/>
                             </textField>
+                            <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" textAlignment="natural" translatesAutoresizingMaskIntoConstraints="NO" id="Y3f-l5-Eoq">
+                                <rect key="frame" x="16" y="338" width="343" height="128"/>
+                                <color key="textColor" red="0.1100632662" green="0.46436287430000001" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <fontDescription key="fontDescription" name="HelveticaNeue" family="Helvetica Neue" pointSize="17"/>
+                                <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
+                            </textView>
                         </subviews>
                         <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <constraints>
+                            <constraint firstItem="Y3f-l5-Eoq" firstAttribute="leading" secondItem="vid-d0-NVz" secondAttribute="leading" id="0dH-pZ-Lev"/>
+                            <constraint firstItem="Y3f-l5-Eoq" firstAttribute="top" secondItem="vid-d0-NVz" secondAttribute="bottom" constant="8" id="2TY-WT-Zjy"/>
                             <constraint firstItem="nhD-ss-UcJ" firstAttribute="top" secondItem="GF1-Ln-eiQ" secondAttribute="bottom" constant="8" symbolic="YES" id="9QO-e2-v9p"/>
+                            <constraint firstItem="1r0-HM-bHp" firstAttribute="top" secondItem="Y3f-l5-Eoq" secondAttribute="bottom" constant="152" id="Agf-x7-X4G"/>
                             <constraint firstItem="nhD-ss-UcJ" firstAttribute="leading" secondItem="GF1-Ln-eiQ" secondAttribute="leading" id="HKc-JP-WhJ"/>
                             <constraint firstAttribute="bottom" secondItem="GF1-Ln-eiQ" secondAttribute="bottom" constant="426" id="Llb-iz-Q7l"/>
                             <constraint firstItem="vid-d0-NVz" firstAttribute="leading" secondItem="nhD-ss-UcJ" secondAttribute="leading" id="NEp-qG-IJy"/>
@@ -377,12 +386,14 @@
                             <constraint firstItem="vid-d0-NVz" firstAttribute="top" secondItem="nhD-ss-UcJ" secondAttribute="bottom" constant="8" id="bhI-Zf-IMY"/>
                             <constraint firstItem="nhD-ss-UcJ" firstAttribute="trailing" secondItem="GF1-Ln-eiQ" secondAttribute="trailing" id="cCm-Bc-IHg"/>
                             <constraint firstItem="GF1-Ln-eiQ" firstAttribute="trailing" secondItem="Mmo-k1-Wpc" secondAttribute="trailingMargin" id="qd3-SQ-LUE"/>
+                            <constraint firstItem="Y3f-l5-Eoq" firstAttribute="trailing" secondItem="vid-d0-NVz" secondAttribute="trailing" id="uIh-ue-ybj"/>
                         </constraints>
                     </view>
                     <tabBarItem key="tabBarItem" title="" id="Upn-8W-l2u">
                         <inset key="imageInsets" minX="0.0" minY="6" maxX="0.0" maxY="-8"/>
                     </tabBarItem>
                     <connections>
+                        <outlet property="descriptionTV" destination="Y3f-l5-Eoq" id="3e8-uM-itA"/>
                         <outlet property="imageContainerLabel" destination="oql-ey-wP8" id="j5b-XS-g4o"/>
                         <outlet property="scrollView" destination="nhD-ss-UcJ" id="jZr-cb-VcK"/>
                         <outlet property="takePhotoBtn" destination="FIf-BU-Mpj" id="NRq-e4-NSg"/>

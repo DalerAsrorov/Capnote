@@ -33,5 +33,12 @@ class UIServices: NSObject {
         textField.layer.borderColor = self.DEFAULT_BORDER_COLOR.cgColor
         textField.layer.borderWidth = CGFloat(self.DEFAULT_BORDER_WIDTH)
     }
+    
+    func setDefaultTextViewColor(textView: UITextView) -> Void {
+        textView.layer.cornerRadius = CGFloat(self.DEFAULT_CORNER_RADIUS)
+        textView.layer.masksToBounds = true
+        textView.layer.borderColor = self.DEFAULT_BORDER_COLOR.cgColor
+        textView.layer.borderWidth = CGFloat(self.DEFAULT_BORDER_WIDTH)
+    }
 
 }

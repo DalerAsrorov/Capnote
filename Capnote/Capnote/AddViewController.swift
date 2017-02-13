@@ -27,6 +27,7 @@ class AddViewController: UIViewController, UINavigationControllerDelegate,
     @IBOutlet weak var imageContainerLabel: UILabel!
     @IBOutlet weak var scrollView: UIScrollView!
     @IBOutlet weak var titleTF: UITextField!
+    @IBOutlet weak var descriptionTV: UITextView!
     
     // Constants
     let uiService = UIServices()
@@ -71,6 +72,7 @@ class AddViewController: UIViewController, UINavigationControllerDelegate,
      
         // Set up TextField's colors
         self.uiServices_.setDefaultTextFieldColor(textField: self.titleTF)
+        self.uiServices_.setDefaultTextViewColor(textView: self.descriptionTV)
         
         print("\n\n***DICT HAPPENED:::", testLocalSotrageMethodsGet())
     }
