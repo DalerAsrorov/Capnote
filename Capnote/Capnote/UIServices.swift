@@ -15,6 +15,10 @@ class UIServices: NSObject {
     let borderWidth = CGFloat(1)
     let baseColorCG: CGColor
     
+    private let DEFAULT_CORNER_RADIUS = 4.0
+    private let DEFAULT_BORDER_COLOR = UIColor(red:0.90, green:0.32, blue:0.22, alpha:1.0)
+    private let DEFAULT_BORDER_WIDTH = 1
+    
     override init() {
         baseColorCG = self.baseColor.cgColor
     }
@@ -22,4 +26,12 @@ class UIServices: NSObject {
     func hideNavigationBar(controller: UIViewController) -> Void {
         controller.navigationController?.setNavigationBarHidden(true, animated: true)
     }
+    
+    func setDefaultTextFieldColor(textField: UITextField) -> Void {
+        textField.layer.cornerRadius = CGFloat(self.DEFAULT_CORNER_RADIUS)
+        textField.layer.masksToBounds = true
+        textField.layer.borderColor = self.DEFAULT_BORDER_COLOR.cgColor
+        textField.layer.borderWidth = CGFloat(self.DEFAULT_BORDER_WIDTH)
+    }
+
 }

@@ -51,6 +51,7 @@ class AddViewController: UIViewController, UINavigationControllerDelegate,
     // Models & Services
     let notesModel_ = NotesModel()
     let userServices_ = UserServices()
+    let uiServices_ = UIServices()
     
     // Static variables 
     private var imagesArray = [UIImage]()
@@ -68,6 +69,9 @@ class AddViewController: UIViewController, UINavigationControllerDelegate,
         self.buttonInsideImageWidth = self.imageContainerWidth / 2
         self.buttonInsideImageHeight = self.imageContainerHeight / 2
      
+        // Set up TextField's colors
+        self.uiServices_.setDefaultTextFieldColor(textField: self.titleTF)
+        
         print("\n\n***DICT HAPPENED:::", testLocalSotrageMethodsGet())
     }
     
