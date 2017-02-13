@@ -41,4 +41,8 @@ class UIServices: NSObject {
         textView.layer.borderWidth = CGFloat(self.DEFAULT_BORDER_WIDTH)
     }
 
+    func setTextViewStyle(textView: UITextView, label: UILabel) -> Void {
+        var localLabel = label
+
+    }
 }
